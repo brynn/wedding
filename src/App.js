@@ -21,7 +21,6 @@ function App() {
             <p className="location">Migis Lodge <br />South Casco, ME</p>
             <p className="date">june third, two thousand &amp; twenty-three</p>
           </div>
-
         </div>
         <div className="story section">
           <p>Our story goes here...</p>

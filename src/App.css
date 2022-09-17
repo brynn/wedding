@@ -35,12 +35,12 @@ a {
 .logo {
   width: 25vw;
   margin: 0 0 50px 0;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .section {
-  height: calc(100vh - 100px);
-  padding: 50px 0;
+  height: 90vh;
+  padding: 5vh 0;
 }
 
 .intro {
@@ -52,7 +52,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 120px);
+  height: 75vh;
 }
 
 .location {
@@ -75,6 +75,7 @@ a {
   font-weight: bold;
   padding: 0 80px;
   justify-content: space-between;
+  height: 5vh;
 }
 
 .story {
@@ -93,3 +94,35 @@ a {
   background-color: #f980c6;
 }
 
+@media only screen and (max-width: 1280px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .photo {
+    min-height: 50vh;
+  }
+
+  .content {
+    overflow: initial;
+  }
+
+  .title,
+  .intro {
+    height: 40vh;
+  }
+
+  .logo {
+    width: 33vw;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .logo {
+    width: 50vw;
+  }
+}
