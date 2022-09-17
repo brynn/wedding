@@ -16,6 +16,11 @@ a {
   color: #ffffff;
 }
 
+.amp {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+}
+
 .photo {
   flex: 1;
   overflow: hidden;
@@ -73,7 +78,6 @@ a {
   list-style: none;
   display: flex;
   text-transform: uppercase;
-  font-weight: bold;
   padding: 0 80px;
   justify-content: space-between;
   height: 5vh;

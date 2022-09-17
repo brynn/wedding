@@ -12,8 +12,8 @@ function App() {
         <div className="intro section">
           <ul className="nav">
             <li><a href="#story">Prelude</a></li>
-            <li><a href="#details">Details</a></li>
-            <li><a href="#travel">Travel &amp; Lodging</a></li>
+            <li><a href="#details">Schedule <span className="amp">&amp;</span> Details</a></li>
+            <li><a href="#travel">Travel <span className="amp">&amp;</span> Lodging</a></li>
             <li><a href="#rsvp">RSVP</a></li>
           </ul>
           <div className="title">
@@ -23,16 +23,16 @@ function App() {
           </div>
         </div>
         <div className="story section">
-          <p>Our story goes here...</p>
+          <p>Prelude</p>
         </div>
         <div className="details section">
-          <p>Wedding details</p>
+          <p>Schedule <span className="amp">&amp;</span> Details</p>
         </div>
         <div className="travel section">
-          <p>Travel info</p>
+          <p>Travel <span className="amp">&amp;</span> Lodging</p>
         </div>
         <div className="rsvp section">
-          <p>RSVP info</p>
+          <p>RSVP</p>
         </div>
       </div>
     </div>
