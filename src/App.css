@@ -1,38 +1,95 @@
 .App {
   text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.photo {
+  flex: 1;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  top: -100px;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  overflow: scroll;
+}
+
+.logo {
+  width: 25vw;
+  margin: 0 0 50px 0;
+  opacity: .5;
+}
+
+.section {
+  height: calc(100vh - 100px);
+  padding: 50px 0;
+}
+
+.intro {
+  background-color: #8389fd;
+}
+
+.title {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: calc(100% - 120px);
 }
 
-.App-link {
-  color: #61dafb;
+.location {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.date {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
 }
+
+.nav {
+  list-style: none;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 80px;
+  justify-content: space-between;
+}
+
+.story {
+  background-color: #a38af0;
+}
+
+.details {
+  background-color: #b789e7;
+}
+
+.travel {
+  background-color: #dd85d5;
+}
+
+.rsvp {
+  background-color: #f980c6;
+}
+
