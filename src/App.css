@@ -65,6 +65,7 @@ a {
 
 .date {
   font-family: 'Libre Baskerville', serif;
+  font-style: italic;
   font-size: 20px;
 }
 
@@ -109,7 +110,7 @@ a {
   }
 
   .photo img {
-    top: -50px;
+    top: -120px;
   }
 
   .content {
