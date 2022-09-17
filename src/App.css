@@ -122,10 +122,6 @@ a {
     height: 40vh;
   }
 
-  .title {
-    justify-content: start;
-  }
-
   .logo {
     width: 33vw;
   }
@@ -138,7 +134,7 @@ a {
   }
 
   .photo img {
-    top: -120px;
+    top: -100px;
   }
 
   .logo {
