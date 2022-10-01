@@ -9,8 +9,14 @@ const testApi = async () => {
   console.log('response: ', response);
 };
 
+const testApi2 = async () => {
+  const response = await fetch('https://wedding-be.onrender.com/api/rsvp');
+  console.log('response: ', response);
+};
+
 function App() {
   testApi();
+  testApi2();
   return (
     <div className="App">
       <div className="photo">
