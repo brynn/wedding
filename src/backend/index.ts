@@ -1,20 +1,21 @@
-import {RSVP} from './types';
+import {RSVP} from '../types';
 
-export const getRSVPs = async () => {
+export const getRSVPs = async (): Promise<RSVP[]> => {
+  let RSVPs: RSVP[] = [];
   try {
-    const response = await fetch('wedding-be/api/rsvp');
+    const response = await fetch('http://localhost:3001/api/rsvp');
     if (response.ok) {
-      const RSVPs: RSVP[] = await response.json();
-      console.log('RSVPs: ', RSVPs);
+      RSVPs = (await response.json()) as RSVP[];
     }
   } catch (err) {
     console.error(err);
   }
+  return RSVPs;
 };
 
 export const postRSVP = async (rsvp: RSVP) => {
   try {
-    const response = await fetch('wedding-be/api/rsvp', {
+    const response = await fetch('http://localhost:3001/api/rsvp', {
       method: 'POST',
       body: JSON.stringify(rsvp),
     });
