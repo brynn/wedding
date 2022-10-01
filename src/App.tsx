@@ -1,3 +1,5 @@
+import React from 'react';
+
 import photo from './img/ab.jpg';
 import logo from './img/logo.png';
 import './App.css';
