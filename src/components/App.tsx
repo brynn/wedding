@@ -19,6 +19,7 @@ const App: React.FC = () => {
   }, []);
 
   console.log('RSVPs: ', RSVPs);
+  console.log('guest: ', guest);
 
   return (
     <div className="App">

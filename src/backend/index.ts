@@ -33,11 +33,13 @@ export const postRSVP = async (rsvp: RSVP): Promise<RSVP | null> => {
   return null;
 };
 
-export const getGuest = async (email: string): Promise<Guest | null> => {
+export const getGuest = async (email: string): Promise<Guest | string | null> => {
   try {
     const response = await fetch(`${API_HOST}/api/guest?email=${email}`);
     if (response.ok) {
       return (await response.json()) as Guest;
+    } else if (response.status === 403) {
+      return Promise.resolve('This email address could not be confirmed, sorry!');
     }
   } catch (err) {
     console.error(err);
