@@ -3,7 +3,7 @@ import logo from './img/logo.png';
 import './App.css';
 
 const testApi = async () => {
-  const reponse = await fetch('wedding-be/api');
+  const response = await fetch('wedding-be/api');
   console.log('response: ', response);
 }
 
