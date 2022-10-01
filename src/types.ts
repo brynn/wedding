@@ -8,3 +8,10 @@ export interface RSVP {
   response: Response;
   meal_choice: MealChoice;
 }
+
+export interface Guest {
+  id?: number;
+  email: string;
+  plus_one_allowed: boolean;
+  rsvp_sent: boolean;
+}

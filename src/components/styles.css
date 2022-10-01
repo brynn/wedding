@@ -13,10 +13,6 @@ body {
   height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 p {
   margin: 0;
 }
@@ -45,6 +41,7 @@ a {
 .content {
   flex: 1;
   overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 .logo {
