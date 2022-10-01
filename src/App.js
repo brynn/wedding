@@ -2,7 +2,13 @@ import photo from './img/ab.jpg';
 import logo from './img/logo.png';
 import './App.css';
 
+const testApi = async () => {
+  const reponse = await fetch('wedding-be/api');
+  console.log('response: ', response);
+}
+
 function App() {
+  testApi();
   return (
     <div className="App">
       <div className="photo">
@@ -18,7 +24,7 @@ function App() {
           </ul>
           <div className="title">
             <img src={logo} alt="Andrew &amp; Brynn" className="logo" />
-            <p className="location">Migis Lodge <br />South Casco, ME</p>
+            <p className="location">Migis Lodge <br />South Casco, Maine</p>
             <p className="date">june third, two thousand &amp; twenty-three</p>
           </div>
         </div>
