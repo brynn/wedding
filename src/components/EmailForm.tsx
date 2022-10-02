@@ -14,7 +14,7 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
   const confirmEmail = async (e: React.MouseEvent, email: string) => {
     e.preventDefault();
     const response = await getGuest(email);
-    if ((response as Guest).id) {
+    if ((response as Guest)?.id) {
       // If the response has an id, we know we confirmed the guest
       setGuest(response as Guest);
     } else {
