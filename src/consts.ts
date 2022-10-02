@@ -1,7 +1,7 @@
 import {createTheme} from '@mui/material/styles';
 
 export const API_HOST =
-  process.env.NODE_ENV === 'production' ? 'website-be' : 'http://localhost:3001';
+  process.env.NODE_ENV === 'production' ? 'https://website-be' : 'http://localhost:3001';
 
 // TODO (brynn): use consts for colors
 
