@@ -2,24 +2,30 @@ import React, {useState, useEffect} from 'react';
 import {Card} from '@mui/material';
 import './styles.css';
 
-import {getRSVPs} from '../backend';
-import {Guest, RSVP} from '../types';
+import {Guest} from '../types';
 import RSVPForm from './RSVPForm';
 import EmailForm from './EmailForm';
 
 const App: React.FC = () => {
-  const [RSVPs, setRSVPs] = useState<RSVP[]>([]);
   const [guest, setGuest] = useState<Guest>();
+  const [sent, setSent] = useState<boolean>(guest?.rsvp_sent || false);
 
   useEffect(() => {
-    const fetchRSVPs = async () => {
-      setRSVPs(await getRSVPs());
-    };
-    fetchRSVPs();
-  }, []);
+    if (guest && guest.rsvp_sent) {
+      setSent(true);
+    }
+  }, [guest]);
 
-  console.log('RSVPs: ', RSVPs);
-  console.log('guest: ', guest);
+  // TODO: add emojis
+
+  let cardContent = <p>Thanks for RSVPing, we can't wait to celebrate with you!</p>;
+  if (!sent) {
+    cardContent = guest ? (
+      <RSVPForm guest={guest} setSent={setSent} />
+    ) : (
+      <EmailForm setGuest={setGuest} />
+    );
+  }
 
   return (
     <div className="App">
@@ -70,12 +76,8 @@ const App: React.FC = () => {
         </div>
         <div className="rsvp section" id="rsvp">
           <p>RSVP</p>
-          <Card style={{display: 'flex', flexDirection: 'column', margin: '5vh', padding: '5vh'}}>
-            {guest ? (
-              <RSVPForm setRSVPs={setRSVPs} RSVPs={RSVPs} />
-            ) : (
-              <EmailForm setGuest={setGuest} />
-            )}
+          <Card style={{display: 'flex', flexDirection: 'column', margin: '2vw', padding: '2vw'}}>
+            {cardContent}
           </Card>
         </div>
       </div>

@@ -6,6 +6,10 @@ body {
   color: #ffffff;
 }
 
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -51,7 +55,7 @@ a {
 }
 
 .section {
-  height: 90vh;
+  min-height: 90vh;
   padding: 5vh;
 }
 
