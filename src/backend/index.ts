@@ -39,7 +39,7 @@ export const getGuest = async (email: string): Promise<Guest | string | null> =>
     if (response.ok) {
       return (await response.json()) as Guest;
     } else if (response.status === 403) {
-      return Promise.resolve('This email address could not be confirmed, sorry!');
+      return Promise.resolve("You're not invited, bitch! Suck it.");
     }
   } catch (err) {
     console.error(err);
