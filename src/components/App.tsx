@@ -17,6 +17,7 @@ const App: React.FC = () => {
   }, [guest]);
 
   // TODO: add emojis
+  // TODO: add loading bar
 
   let cardContent = <p>Thanks for RSVPing, we can't wait to celebrate with you!</p>;
   if (!sent) {
