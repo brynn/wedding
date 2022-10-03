@@ -38,10 +38,11 @@ export const getGuest = async (email: string): Promise<Guest | string | null> =>
     const response = await fetch(`${API_HOST}/api/guest?email=${email}`);
     if (response.ok) {
       return (await response.json()) as Guest;
+    } else {
+      return Promise.resolve("We couldn't confirm that email, sorry!");
     }
   } catch (err) {
     console.error(err);
-    return Promise.resolve("We couldn't confirm that email, sorry!");
   }
   return null;
 };
