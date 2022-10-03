@@ -25,7 +25,7 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
       }
       setLoading(false);
     } catch (err) {
-      setError(err);
+      setEmail('');
       setLoading(false);
     }
   };
