@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -31,7 +35,7 @@ a {
 h2 {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .amp {
@@ -160,10 +164,6 @@ h2 {
     height: 40vh;
   }
 
-  /* .intro-content {
-    height: 30vh;
-  } */
-
   .logo {
     width: 33vw;
   }
@@ -176,7 +176,8 @@ h2 {
   }
 
   .section {
-    padding: 3vh;
+    min-height: 94vh;
+    padding: 3vh 1vh;
   }
 
   .intro,
@@ -192,7 +193,6 @@ h2 {
 
   .logo {
     width: 60vw;
-    /* margin: 0 0 30px 0; */
   }
 
   .location {
@@ -203,5 +203,9 @@ h2 {
 
   .date {
     font-size: 16px;
+  }
+
+  .rsvp .MuiFormHelperText-root {
+    font-size: 0.75rem;
   }
 }

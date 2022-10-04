@@ -10,16 +10,16 @@ export const API_HOST =
 export const THEME = createTheme({
   palette: {
     primary: {
-      main: '#f31495',
+      main: '#f64aad',
     },
     secondary: {
-      main: '#3741fb',
+      main: '#5d65fc',
     },
     error: {
       main: '#ffffff',
     },
     background: {
-      paper: '#f75cb5',
+      paper: '#f766ba',
     },
   },
   typography: {
@@ -32,8 +32,8 @@ export const THEME = createTheme({
           color: '#ffffff',
           display: 'flex',
           flexDirection: 'column',
-          margin: '2vw',
-          padding: '2vw',
+          margin: '5vh',
+          padding: '3vh',
         },
       },
     },
@@ -66,7 +66,7 @@ export const THEME = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          marginBottom: '2vw',
+          marginBottom: '2vh',
         },
       },
     },

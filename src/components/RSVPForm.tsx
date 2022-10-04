@@ -98,6 +98,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
       <Button
         onClick={() => rsvp && submitRSVP(rsvp as RSVP)}
         variant="contained"
+        size="large"
         disabled={!rsvp.name}
       >
         {loading ? 'Loading...' : 'Send RSVP'}

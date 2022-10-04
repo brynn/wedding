@@ -43,7 +43,12 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <Button variant="contained" onClick={(e) => confirmEmail(e, email)} disabled={!email}>
+      <Button
+        variant="contained"
+        onClick={(e) => confirmEmail(e, email)}
+        disabled={!email}
+        size="large"
+      >
         {loading ? 'Loading...' : 'Confirm Email'}
       </Button>
     </>
