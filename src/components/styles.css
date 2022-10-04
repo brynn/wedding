@@ -58,7 +58,7 @@ h2 {
 
 .logo {
   width: 25vw;
-  margin: 0 0 50px 0;
+  margin: 0 0 5vh 0;
   opacity: 0.5;
 }
 
@@ -71,7 +71,7 @@ h2 {
   background-color: #8389fd;
 }
 
-.title {
+.intro-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,6 +91,7 @@ h2 {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   font-size: 20px;
+  margin-bottom: 5vh;
 }
 
 .nav {
@@ -153,10 +154,14 @@ h2 {
     overflow: initial;
   }
 
-  .title,
-  .intro {
+  .intro,
+  .intro-content {
     height: 40vh;
   }
+
+  /* .intro-content {
+    height: 30vh;
+  } */
 
   .logo {
     width: 33vw;

@@ -61,17 +61,17 @@ const App: React.FC = () => {
               <a href="#rsvp">RSVP</a>
             </li>
           </ul>
-          <div className="title">
+          <div className="intro-content">
             <img src="/img/logo.png" alt="Andrew &amp; Brynn" className="logo" />
             <p className="location">
               Migis Lodge <br />
               South Casco, Maine
             </p>
             <p className="date">june third, two thousand &amp; twenty-three</p>
+            <Button variant="contained" size="large" href="#rsvp" color="secondary">
+              RSVP
+            </Button>
           </div>
-          <Button variant="contained" size="large" href="#rsvp" color="secondary">
-            RSVP
-          </Button>
         </div>
         <div className="story section" id="prelude">
           <h2>Prelude</h2>
