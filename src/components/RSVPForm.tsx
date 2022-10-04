@@ -25,7 +25,6 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
     plus_one: guest.plus_one_allowed,
   });
   const [loading, setLoading] = useState<boolean>(false);
-  console.log('guest: ', guest);
 
   const updateRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>) => {
     e.preventDefault();
