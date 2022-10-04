@@ -22,6 +22,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
     response: true,
     plus_one: guest.plus_one_allowed,
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const updateRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>) => {
     e.preventDefault();
@@ -29,9 +30,21 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
   };
 
   const submitRSVP = async (rsvp: RSVP) => {
-    const newRSVP = await postRSVP(rsvp);
-    if (newRSVP?.id) {
-      setSent(true);
+    try {
+      setLoading(true);
+      const newRSVP = await postRSVP(rsvp);
+      if (newRSVP?.id) {
+        setSent(true);
+      }
+      setLoading(false);
+    } catch (err) {
+      setRSVP({
+        ...rsvp,
+        name: '',
+        response: true,
+        plus_one: guest.plus_one_allowed,
+      });
+      setLoading(false);
     }
   };
 
@@ -78,9 +91,9 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
       <Button
         onClick={() => rsvp && submitRSVP(rsvp as RSVP)}
         variant="contained"
-        disabled={!rsvp.name || rsvp.plus_one === undefined || rsvp.response === undefined}
+        disabled={!rsvp.name}
       >
-        Send RSVP
+        {loading ? 'Loading...' : 'Send RSVP'}
       </Button>
     </>
   );
