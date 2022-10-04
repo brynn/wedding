@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Card} from '@mui/material';
+import {Card, Button} from '@mui/material';
 import './styles.css';
 
 import {Guest} from '../types';
@@ -69,6 +69,9 @@ const App: React.FC = () => {
             </p>
             <p className="date">june third, two thousand &amp; twenty-three</p>
           </div>
+          <Button variant="contained" size="large" href="#rsvp" color="secondary">
+            RSVP
+          </Button>
         </div>
         <div className="story section" id="prelude">
           <h2>Prelude</h2>

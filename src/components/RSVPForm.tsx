@@ -75,8 +75,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
           value={rsvp.response ? 'yes' : 'no'}
           onChange={(e, value) => updateRSVP(e, {response: value === 'yes'})}
         >
-          <FormControlLabel value="yes" control={<Radio color="secondary" />} label="Can't wait!" />
-          <FormControlLabel value="no" control={<Radio color="secondary" />} label="Sadly, no" />
+          <FormControlLabel value="yes" control={<Radio />} label="Can't wait!" />
+          <FormControlLabel value="no" control={<Radio />} label="Sadly, no" />
         </RadioGroup>
       </FormControl>
       {guest.plus_one_allowed && (
@@ -90,8 +90,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
             value={rsvp.plus_one ? 'yes' : 'no'}
             onChange={(e, value) => updateRSVP(e, {plus_one: value === 'yes'})}
           >
-            <FormControlLabel value="yes" control={<Radio color="secondary" />} label="Yep" />
-            <FormControlLabel value="no" control={<Radio color="secondary" />} label="Nope" />
+            <FormControlLabel value="yes" control={<Radio />} label="Yep" />
+            <FormControlLabel value="no" control={<Radio />} label="Nope" />
           </RadioGroup>
         </FormControl>
       )}
