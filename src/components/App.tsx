@@ -30,7 +30,7 @@ const App: React.FC = () => {
   );
   if (!sent) {
     cardContent = guest ? (
-      <RSVPForm guest={guest} setSent={setSent} />
+      <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} />
     ) : (
       <EmailForm setGuest={setGuest} />
     );

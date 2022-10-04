@@ -11,6 +11,7 @@ export interface RSVP {
 
 export interface Guest {
   id?: number;
+  name: string;
   email: string;
   plus_one_allowed: boolean;
   rsvp_sent: boolean;

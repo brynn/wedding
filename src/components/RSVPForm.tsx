@@ -14,10 +14,12 @@ import {RSVP, Guest} from '../types';
 interface Props {
   guest: Guest;
   setSent: (sent: boolean) => void;
+  setResponse: (response: boolean) => void;
 }
 
-const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
+const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
   const [rsvp, setRSVP] = useState<Partial<RSVP>>({
+    name: guest.name,
     email: guest.email,
     response: true,
     plus_one: guest.plus_one_allowed,
@@ -35,6 +37,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
       const newRSVP = await postRSVP(rsvp);
       if (newRSVP?.id) {
         setSent(true);
+        setResponse(newRSVP.response);
       }
       setLoading(false);
     } catch (err) {
@@ -48,6 +51,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
     }
   };
 
+  // TODO (show error if name conflict)
+
   return (
     <>
       <TextField
@@ -56,6 +61,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
         variant="outlined"
         required
         autoFocus
+        // Name is editable but defaults to the value we started with in the guest table
+        value={rsvp.name}
         onChange={(e) => updateRSVP(e, {name: e.target.value})}
       />
       <FormControl>
