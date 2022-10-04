@@ -14,4 +14,5 @@ export interface Guest {
   email: string;
   plus_one_allowed: boolean;
   rsvp_sent: boolean;
+  response: boolean;
 }

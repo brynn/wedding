@@ -28,6 +28,12 @@ a {
   color: #ffffff;
 }
 
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
 .amp {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
@@ -74,7 +80,7 @@ a {
 }
 
 .location {
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: 24px;
   line-height: 36px;
@@ -91,6 +97,7 @@ a {
   list-style: none;
   display: flex;
   text-transform: uppercase;
+  font-weight: 700;
   padding: 0 80px;
   justify-content: space-between;
   height: 5vh;
@@ -110,6 +117,18 @@ a {
 
 .rsvp {
   background-color: #f980c6;
+}
+
+.thanks {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+}
+
+.MuiFormLabel-root.rsvp-label,
+.MuiFormLabel-root.Mui-focused.rsvp-label {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
 
 @media only screen and (max-width: 1440px) {

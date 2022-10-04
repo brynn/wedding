@@ -35,9 +35,9 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
       <TextField
         id="email"
         type="email"
-        label="Email"
+        label="Your Email"
         error={!!error}
-        helperText={error || `Please confirm your email address in order to RSVP`}
+        helperText={error || 'please confirm your email address in order to RSVP'}
         variant="outlined"
         required
         value={email}

@@ -39,34 +39,39 @@ const RSVPForm: React.FC<Props> = ({guest, setSent}: Props) => {
     <>
       <TextField
         id="name"
-        label="Full Name"
+        label="Your Full Name"
         variant="outlined"
         required
+        autoFocus
         onChange={(e) => updateRSVP(e, {name: e.target.value})}
       />
       <FormControl>
-        <FormLabel id="response-group">Can you attend?</FormLabel>
+        <FormLabel id="response-group" className="rsvp-label">
+          can you attend?
+        </FormLabel>
         <RadioGroup
           aria-labelledby="response-group"
           name="response"
           value={rsvp.response ? 'yes' : 'no'}
           onChange={(e, value) => updateRSVP(e, {response: value === 'yes'})}
         >
-          <FormControlLabel value="yes" control={<Radio />} label="Can't wait!" />
-          <FormControlLabel value="no" control={<Radio />} label="Sadly I cannot" />
+          <FormControlLabel value="yes" control={<Radio color="secondary" />} label="Can't wait!" />
+          <FormControlLabel value="no" control={<Radio color="secondary" />} label="Sadly, no" />
         </RadioGroup>
       </FormControl>
       {guest.plus_one_allowed && (
         <FormControl>
-          <FormLabel id="plus-one-group">Will you be bringing a guest?</FormLabel>
+          <FormLabel id="plus-one-group" className="rsvp-label">
+            will you be bringing a guest?
+          </FormLabel>
           <RadioGroup
             aria-labelledby="plus-one-group"
             name="plus-one"
             value={rsvp.plus_one ? 'yes' : 'no'}
             onChange={(e, value) => updateRSVP(e, {plus_one: value === 'yes'})}
           >
-            <FormControlLabel value="yes" control={<Radio />} label="Yep" />
-            <FormControlLabel value="no" control={<Radio />} label="Nope" />
+            <FormControlLabel value="yes" control={<Radio color="secondary" />} label="Yep" />
+            <FormControlLabel value="no" control={<Radio color="secondary" />} label="Nope" />
           </RadioGroup>
         </FormControl>
       )}

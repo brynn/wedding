@@ -9,17 +9,25 @@ import EmailForm from './EmailForm';
 const App: React.FC = () => {
   const [guest, setGuest] = useState<Guest>();
   const [sent, setSent] = useState<boolean>(guest?.rsvp_sent || false);
+  const [response, setResponse] = useState<boolean>(guest?.response || false);
 
   useEffect(() => {
     if (guest && guest.rsvp_sent) {
       setSent(true);
+      setResponse(guest.response);
     }
   }, [guest]);
 
   // TODO: add emojis
   // TODO: add loading bar
 
-  let cardContent = <p>Thanks for RSVPing, we can't wait to celebrate with you!</p>;
+  let cardContent = (
+    <p className="thanks">
+      {response
+        ? `thanks for RSVPing, we can't wait to celebrate with you!`
+        : `thanks for RSVPing, you'll be missed!`}
+    </p>
+  );
   if (!sent) {
     cardContent = guest ? (
       <RSVPForm guest={guest} setSent={setSent} />
@@ -63,23 +71,21 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className="story section" id="prelude">
-          <p>Prelude</p>
+          <h2>Prelude</h2>
         </div>
         <div className="details section" id="details">
-          <p>
+          <h2>
             Schedule <span className="amp">&amp;</span> Details
-          </p>
+          </h2>
         </div>
         <div className="travel section" id="travel">
-          <p>
+          <h2>
             Travel <span className="amp">&amp;</span> Lodging
-          </p>
+          </h2>
         </div>
         <div className="rsvp section" id="rsvp">
-          <p>RSVP</p>
-          <Card style={{display: 'flex', flexDirection: 'column', margin: '2vw', padding: '2vw'}}>
-            {cardContent}
-          </Card>
+          <h2>RSVP</h2>
+          <Card>{cardContent}</Card>
         </div>
       </div>
     </div>
