@@ -1,9 +1,6 @@
 import {createTheme} from '@mui/material/styles';
 
-export const API_HOST =
-  process.env.NODE_ENV === 'production'
-    ? ''
-    : 'http://localhost:3001';
+export const API_HOST = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
 // TODO (brynn): use consts for colors
 
@@ -43,6 +40,7 @@ export const THEME = createTheme({
           color: '#ffffff',
           opacity: 0.5,
           '&.Mui-checked': {
+            color: '#ffffff',
             opacity: 1,
           },
         },
@@ -66,7 +64,7 @@ export const THEME = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          marginBottom: '2vh',
+          marginBottom: '30px',
         },
       },
     },
