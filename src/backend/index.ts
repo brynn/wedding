@@ -6,6 +6,7 @@ export const getRSVPs = async (): Promise<RSVP[]> => {
   try {
     const response = await fetch(`${API_HOST}/api/rsvp`, {
       headers: {'API-Key': `${process.env.REACT_APP_API_KEY}`},
+      method: 'GET',
     });
     if (response.ok) {
       RSVPs = (await response.json()) as RSVP[];
@@ -38,9 +39,9 @@ export const postRSVP = async (rsvp: RSVP): Promise<RSVP | null> => {
 
 export const getGuest = async (email: string): Promise<Guest | string | null> => {
   try {
-    console.log('react env var: ', process.env.REACT_APP_API_KEY);
     const response = await fetch(`${API_HOST}/api/guest?email=${email}`, {
       headers: {'API-Key': `${process.env.REACT_APP_API_KEY}`},
+      method: 'GET',
     });
     if (response.ok) {
       return (await response.json()) as Guest;
