@@ -126,14 +126,14 @@ h2 {
 
 .thanks {
   font-family: 'Libre Baskerville', serif;
-  font-style: 'italic';
+  font-style: italic;
   color: #ffffff;
 }
 
 .MuiFormLabel-root.rsvp-label,
 .MuiFormLabel-root.Mui-focused.rsvp-label {
   font-family: 'Libre Baskerville', serif;
-  font-style: 'italic';
+  font-style: italic;
   color: #ffffff;
   font-size: 1.2rem;
 }
@@ -208,6 +208,6 @@ h2 {
   }
 
   .rsvp .MuiFormHelperText-root {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
