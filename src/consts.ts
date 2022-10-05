@@ -29,7 +29,7 @@ export const THEME = createTheme({
           color: '#ffffff',
           display: 'flex',
           flexDirection: 'column',
-          margin: '5vh',
+          margin: '5vh 0',
           padding: '3vh',
         },
       },

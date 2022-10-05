@@ -95,7 +95,7 @@ h2 {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   font-size: 20px;
-  margin-bottom: 5vh;
+  margin-bottom: 8vh;
 }
 
 .nav {
@@ -177,7 +177,7 @@ h2 {
 
   .section {
     min-height: 94vh;
-    padding: 3vh 1vh;
+    padding: 3vh;
   }
 
   .intro,
@@ -206,6 +206,6 @@ h2 {
   }
 
   .rsvp .MuiFormHelperText-root {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 }

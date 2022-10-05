@@ -5,6 +5,7 @@ export interface RSVP {
   name: string;
   email: string;
   plus_one: boolean;
+  rehearsal_dinner: boolean;
   response: boolean;
   meal_choice: MealChoice;
 }
@@ -14,6 +15,7 @@ export interface Guest {
   name: string;
   email: string;
   plus_one_allowed: boolean;
+  rehearsal_dinner_allowed: boolean;
   rsvp_sent: boolean;
   response: boolean;
 }

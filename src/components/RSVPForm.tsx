@@ -18,11 +18,13 @@ interface Props {
 }
 
 const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
+  const {name, email} = guest;
   const [rsvp, setRSVP] = useState<Partial<RSVP>>({
-    name: guest.name,
-    email: guest.email,
+    name,
+    email,
     response: true,
-    plus_one: guest.plus_one_allowed,
+    plus_one: true,
+    rehearsal_dinner: true,
   });
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -46,12 +48,13 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
         name: '',
         response: true,
         plus_one: guest.plus_one_allowed,
+        rehearsal_dinner: guest.rehearsal_dinner_allowed,
       });
       setLoading(false);
     }
   };
 
-  // TODO (show error if name conflict)
+  // TODO: show server errors
 
   return (
     <>
@@ -79,21 +82,41 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
           <FormControlLabel value="no" control={<Radio />} label="Sadly, no" />
         </RadioGroup>
       </FormControl>
-      {guest.plus_one_allowed && (
-        <FormControl>
-          <FormLabel id="plus-one-group" className="rsvp-label">
-            will you be bringing a guest?
-          </FormLabel>
-          <RadioGroup
-            aria-labelledby="plus-one-group"
-            name="plus-one"
-            value={rsvp.plus_one ? 'yes' : 'no'}
-            onChange={(e, value) => updateRSVP(e, {plus_one: value === 'yes'})}
-          >
-            <FormControlLabel value="yes" control={<Radio />} label="Yep" />
-            <FormControlLabel value="no" control={<Radio />} label="Nope" />
-          </RadioGroup>
-        </FormControl>
+      {rsvp.response && (
+        <>
+          {guest.plus_one_allowed && (
+            <FormControl>
+              <FormLabel id="plus-one-group" className="rsvp-label">
+                will you be bringing a guest?
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="plus-one-group"
+                name="plus-one"
+                value={rsvp.plus_one ? 'yes' : 'no'}
+                onChange={(e, value) => updateRSVP(e, {plus_one: value === 'yes'})}
+              >
+                <FormControlLabel value="yes" control={<Radio />} label="Yep" />
+                <FormControlLabel value="no" control={<Radio />} label="Nope" />
+              </RadioGroup>
+            </FormControl>
+          )}
+          {guest.rehearsal_dinner_allowed && (
+            <FormControl>
+              <FormLabel id="rehearsal-dinner-group" className="rsvp-label">
+                can you attend the rehearsal dinner at migis on june second?
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="rehearsal-dinner-group"
+                name="rehearsal-dinner"
+                value={rsvp.rehearsal_dinner ? 'yes' : 'no'}
+                onChange={(e, value) => updateRSVP(e, {rehearsal_dinner: value === 'yes'})}
+              >
+                <FormControlLabel value="yes" control={<Radio />} label="Yep" />
+                <FormControlLabel value="no" control={<Radio />} label="Nope" />
+              </RadioGroup>
+            </FormControl>
+          )}
+        </>
       )}
       <Button
         onClick={() => rsvp && submitRSVP(rsvp as RSVP)}
