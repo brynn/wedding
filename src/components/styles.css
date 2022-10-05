@@ -95,7 +95,7 @@ h2 {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   font-size: 20px;
-  margin-bottom: 8vh;
+  margin-bottom: 6vh;
 }
 
 .nav {
@@ -126,12 +126,14 @@ h2 {
 
 .thanks {
   font-family: 'Libre Baskerville', serif;
+  font-style: 'italic';
   color: #ffffff;
 }
 
 .MuiFormLabel-root.rsvp-label,
 .MuiFormLabel-root.Mui-focused.rsvp-label {
   font-family: 'Libre Baskerville', serif;
+  font-style: 'italic';
   color: #ffffff;
   font-size: 1.2rem;
 }
