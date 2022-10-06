@@ -64,7 +64,14 @@ export const THEME = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          marginBottom: '30px',
+          margin: '20px 0',
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: '0.9rem',
         },
       },
     },
@@ -121,6 +128,9 @@ export const THEME = createTheme({
             },
             '&.Mui-focused fieldset': {
               borderColor: '#ffffff',
+            },
+            '& .MuiOutlinedInput-input': {
+              fontWeight: 500,
             },
           },
         },

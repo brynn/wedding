@@ -113,28 +113,32 @@ h3 {
   display: flex;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0 80px;
+  padding: 0 10px;
   justify-content: space-between;
   height: 5vh;
 }
 
-.nav a {
+a {
   opacity: 0.8;
 }
 
-.nav a:hover {
+a:hover {
   opacity: 1;
 }
 
-.story {
+.prelude {
   background-color: #a38af0;
 }
 
-.details {
+.schedule {
   background-color: #b789e7;
 }
 
 .travel {
+  background-color: #ca88de;
+}
+
+.things {
   background-color: #dd85d5;
 }
 
@@ -148,37 +152,34 @@ h3 {
   color: #ffffff;
 }
 
-.copy {
-  margin-top: 5vh;
+.item {
+  margin: 36px 0;
   text-align: left;
+  display: flex;
 }
 
-.copy h3 {
-  margin-top: 2px;
+.item h3 {
+  margin-top: 0;
+  line-height: 1.5rem;
   opacity: 1;
 }
 
-.copy p {
+.item p {
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1.3rem;
 }
 
-.copy .item {
-  margin: 36px 0;
-  display: flex;
-}
-
-.copy .icon {
+.item .MuiSvgIcon-root {
   margin-right: 12px;
 }
 
-.copy .schedule-time {
+.item .description {
   text-transform: lowercase;
   padding-left: 12px;
 }
 
-.copy p.subtitle {
+.item p.subtitle {
   margin: 10px 0 5px 0;
   font-weight: 600;
 }
@@ -188,7 +189,7 @@ h3 {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #ffffff;
-  font-size: 1.2rem;
+  margin-bottom: 3px;
 }
 
 @media only screen and (max-width: 1440px) {

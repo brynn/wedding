@@ -7,6 +7,7 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  Divider,
 } from '@mui/material';
 import {postRSVP} from '../backend';
 import {RSVP, Guest} from '../types';
@@ -70,7 +71,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
       />
       <FormControl>
         <FormLabel id="response-group" className="rsvp-label">
-          can you attend?
+          can you attend the wedding?
         </FormLabel>
         <RadioGroup
           aria-labelledby="response-group"
@@ -82,6 +83,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
           <FormControlLabel value="no" control={<Radio />} label="Sadly, no" />
         </RadioGroup>
       </FormControl>
+      <Divider />
       {rsvp.response && (
         <>
           {guest.plus_one_allowed && (
@@ -100,10 +102,11 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
               </RadioGroup>
             </FormControl>
           )}
+          <Divider />
           {guest.rehearsal_dinner_allowed && (
             <FormControl>
               <FormLabel id="rehearsal-dinner-group" className="rsvp-label">
-                can you attend the rehearsal dinner at migis on june second?
+                can you attend the welcome party?
               </FormLabel>
               <RadioGroup
                 aria-labelledby="rehearsal-dinner-group"
