@@ -93,6 +93,14 @@ export const THEME = createTheme({
         },
       },
     },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: '#ffffff',
+          opacity: 0.2,
+        },
+      },
+    },
     MuiTextField: {
       styleOverrides: {
         root: {
