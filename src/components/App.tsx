@@ -129,7 +129,7 @@ const App: React.FC = () => {
               </>
             }
             icon={<LocalFireDepartmentOutlinedIcon />}
-            description="friday, june second, 6—11pm"
+            description="friday, june second, 6–11pm"
             subtitle="Cookout Point"
             body={
               <>
@@ -145,7 +145,7 @@ const App: React.FC = () => {
           <Item
             title="Breakfast"
             icon={<EggAltOutlinedIcon />}
-            description="saturday, june third, 8—10am"
+            description="saturday, june third, 8–10am"
             subtitle="Cookout Point"
             body="For guests staying at Migis, breakfast will be provided at the cookout point."
           />
@@ -164,7 +164,7 @@ const App: React.FC = () => {
           <Item
             title="Lunch"
             icon={<LunchDiningOutlinedIcon />}
-            description="saturday, june third, 12—1pm"
+            description="saturday, june third, 12–1pm"
             subtitle="Main Lodge"
             body={
               <>
@@ -180,7 +180,7 @@ const App: React.FC = () => {
               </>
             }
             icon={<CelebrationOutlinedIcon />}
-            description="saturday, june third, 5—6:30pmm"
+            description="saturday, june third, 5–6:30pm"
             subtitle="The Lawn"
             body={
               <>
@@ -193,7 +193,7 @@ const App: React.FC = () => {
           <Item
             title="Reception"
             icon={<CakeOutlinedIcon />}
-            description="saturday, june third, 6:30pm—10pm"
+            description="saturday, june third, 6:30pm–10pm"
             subtitle="Main Lodge"
             body={
               <>
@@ -212,7 +212,7 @@ const App: React.FC = () => {
           <Item
             title="Farewell Brunch"
             icon={<BrunchDiningOutlinedIcon />}
-            description="sunday, june fourth, 9—11am"
+            description="sunday, june fourth, 9–11am"
             subtitle="Cookout Point"
             body="For guests staying at Migis, brunch will be provided at the cookout point."
           />
@@ -269,7 +269,7 @@ const App: React.FC = () => {
           <Item
             title="Driving From NYC"
             icon={<DirectionsCarFilledOutlinedIcon />}
-            body="Depending on traffic, it takes between 5—7 hours to drive to Migis from the New
+            body="Depending on traffic, it takes between 5–7 hours to drive to Migis from the New
                   York City area."
           />
         </Section>
