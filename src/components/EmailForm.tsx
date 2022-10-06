@@ -39,7 +39,6 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
         error={!!error}
         helperText={error || 'please confirm your email in order to RSVP'}
         variant="outlined"
-        required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />

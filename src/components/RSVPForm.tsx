@@ -63,7 +63,6 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
         id="name"
         label="Your Full Name"
         variant="outlined"
-        required
         autoFocus
         // Name is editable but defaults to the value we started with in the guest table
         value={rsvp.name}
