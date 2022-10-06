@@ -39,6 +39,7 @@ const App: React.FC = () => {
   }, [guest]);
 
   // TODO: add loading bar
+  // TODO: add link to Migis map
   // TODO: icon map
   // TODO: add links
   // TODO: content map (?)
@@ -227,7 +228,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<HotelOutlinedIcon />}
-            description="30 Migis Lodge Road, South Casco Maine"
+            description="30 Migis Lodge Road, South Casco"
             subtitle="(207) 655-4524"
             body="We will work with Migis to assign the cottages and lodge rooms, making sure to
               place you close to your friends and favorite people, and you will be informed of
@@ -244,7 +245,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<HotelOutlinedIcon />}
-            description="965 Roosevelt Trail, Windham Maine 04062"
+            description="965 Roosevelt Trail, Windham"
             subtitle="(207) 893-8870"
             body="For those that would prefer to stay offsite, the Microtel is a 10 minute drive
               from Migis. The lodge and its amenities will still be available to you throughout
@@ -282,7 +283,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<SportsBarOutlinedIcon />}
-            description="616 Main Street, Gorham Maine"
+            description="616 Main Street, Gorham"
             body="Great local beers; there are a few locations, but this one is closest to the venue. Co-founded and owned by the bride's stepdad's cousin!"
           />
           <Item
@@ -292,7 +293,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<RestaurantOutlinedIcon />}
-            description="2 School Street, Gorham Maine"
+            description="2 School Street, Gorham"
             body="Delicious food in nearby Gorham, which is a bit closer to Migis than downtown Portland."
           />
           <Item
@@ -302,7 +303,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<BakeryDiningOutlinedIcon />}
-            description="742 Congress Street, Portland Maine"
+            description="742 Congress Street, Portland"
             body="Excellent coffee and even better breakfast sandwiches!"
           />
           <Item
@@ -312,7 +313,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<CookieOutlinedIcon />}
-            description="7 Exchange Street, Portland Maine"
+            description="7 Exchange Street, Portland"
             body="Delicious craft donuts with all-natural ingredients."
           />
           <Item
@@ -322,7 +323,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<RestaurantOutlinedIcon />}
-            description="43 Middle Street, Portland Maine"
+            description="43 Middle Street, Portland"
             body="The fries alone are worth the (inevitably) long wait!"
           />
           <Item
@@ -332,7 +333,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<LocalBarOutlinedIcon />}
-            description="26 Exchange Street, Portland Maine"
+            description="26 Exchange Street, Portland"
             body="Top-tier cocktails and great food too."
           />
           <Item
@@ -342,7 +343,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<ColorLensOutlinedIcon />}
-            description="7 Congress Square, Portland Maine"
+            description="7 Congress Square, Portland"
             body="Fantastic collection and the perfect size for a short visit."
           />
         </Section>
