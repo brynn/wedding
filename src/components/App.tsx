@@ -17,6 +17,7 @@ import SportsBarOutlinedIcon from '@mui/icons-material/SportsBarOutlined';
 import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import LocalBarOutlinedIcon from '@mui/icons-material/LocalBarOutlined';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import './styles.css';
 
 import {Guest} from '../types';
@@ -226,7 +227,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<HotelOutlinedIcon />}
-            description="30 Migis Lodge Road, South Casco, Maine, 04077"
+            description="30 Migis Lodge Road, South Casco Maine"
             subtitle="(207) 655-4524"
             body="We will work with Migis to assign the cottages and lodge rooms, making sure to
               place you close to your friends and favorite people, and you will be informed of
@@ -243,7 +244,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<HotelOutlinedIcon />}
-            description="965 Roosevelt Trail, Windham, Maine, 04062"
+            description="965 Roosevelt Trail, Windham Maine 04062"
             subtitle="(207) 893-8870"
             body="For those that would prefer to stay offsite, the Microtel is a 10 minute drive
               from Migis. The lodge and its amenities will still be available to you throughout
@@ -281,8 +282,18 @@ const App: React.FC = () => {
               </a>
             }
             icon={<SportsBarOutlinedIcon />}
-            description="616 Main St, Gorham, ME 04038"
-            body="Great local beers; there are a few other locations, but this one is closest to the venue. Co-founded and owned by the bride's stepdad's cousin!"
+            description="616 Main Street, Gorham Maine"
+            body="Great local beers; there are a few locations, but this one is closest to the venue. Co-founded and owned by the bride's stepdad's cousin!"
+          />
+          <Item
+            title={
+              <a href="https://mkkitchen.net/" rel="noreferrer" target="_blank">
+                MK Kitchen
+              </a>
+            }
+            icon={<RestaurantOutlinedIcon />}
+            description="2 School Street, Gorham Maine"
+            body="Delicious food in nearby Gorham, which is a bit closer to Migis than downtown Portland."
           />
           <Item
             title={
@@ -291,7 +302,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<BakeryDiningOutlinedIcon />}
-            description="742 Congress Street, Portland, Maine, 04102"
+            description="742 Congress Street, Portland Maine"
             body="Excellent coffee and even better breakfast sandwiches!"
           />
           <Item
@@ -301,7 +312,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<CookieOutlinedIcon />}
-            description="7 Exchange Street, Portland, Maine, 04101"
+            description="7 Exchange Street, Portland Maine"
             body="Delicious craft donuts with all-natural ingredients."
           />
           <Item
@@ -311,7 +322,7 @@ const App: React.FC = () => {
               </a>
             }
             icon={<RestaurantOutlinedIcon />}
-            description="43 Middle Street, Portland, Maine, 04101"
+            description="43 Middle Street, Portland Maine"
             body="The fries alone are worth the (inevitably) long wait!"
           />
           <Item
@@ -321,8 +332,18 @@ const App: React.FC = () => {
               </a>
             }
             icon={<LocalBarOutlinedIcon />}
-            description="26 Exchange Street, Portland, Maine, 04101"
+            description="26 Exchange Street, Portland Maine"
             body="Top-tier cocktails and great food too."
+          />
+          <Item
+            title={
+              <a href="https://www.portlandmuseum.org/" rel="noreferrer" target="_blank">
+                Portland Museum of Art
+              </a>
+            }
+            icon={<ColorLensOutlinedIcon />}
+            description="7 Congress Square, Portland Maine"
+            body="Fantastic collection and the perfect size for a short visit."
           />
         </Section>
 
