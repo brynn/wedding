@@ -23,10 +23,11 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
   const [rsvp, setRSVP] = useState<Partial<RSVP>>({
     name,
     email,
-    meal_choice: 'fish',
     response: true,
     plus_one: true,
     rehearsal_dinner: true,
+    meal_choice: 'fish',
+    guest_meal_choice: 'fish',
   });
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -75,8 +76,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
           value={rsvp.response ? 'yes' : 'no'}
           onChange={(e, value) => updateRSVP(e, {response: value === 'yes'})}
         >
-          <FormControlLabel value="yes" control={<Radio />} label="Can't wait!" />
-          <FormControlLabel value="no" control={<Radio />} label="Sadly, no" />
+          <FormControlLabel value="yes" control={<Radio size="small" />} label="Can't wait!" />
+          <FormControlLabel value="no" control={<Radio size="small" />} label="Sadly, no" />
         </RadioGroup>
       </FormControl>
       {rsvp.response && (
@@ -84,7 +85,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
           <Divider />
           <FormControl>
             <FormLabel id="meal-choice-group" className="rsvp-label">
-              what's your meal preference?
+              what is your meal preference?
             </FormLabel>
             <RadioGroup
               aria-labelledby="meal-choice-group"
@@ -92,9 +93,13 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
               value={rsvp.meal_choice}
               onChange={(e, value) => updateRSVP(e, {meal_choice: value as MealChoice})}
             >
-              <FormControlLabel value="fish" control={<Radio />} label="Fish" />
-              <FormControlLabel value="chicken" control={<Radio />} label="Meat (TBD)" />
-              <FormControlLabel value="vegetarian" control={<Radio />} label="Vegetarian" />
+              <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
+              <FormControlLabel value="chicken" control={<Radio size="small" />} label="Meat" />
+              <FormControlLabel
+                value="vegetarian"
+                control={<Radio size="small" />}
+                label="Vegetarian"
+              />
             </RadioGroup>
           </FormControl>
           {plus_one_allowed && (
@@ -110,8 +115,32 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
                   value={rsvp.plus_one ? 'yes' : 'no'}
                   onChange={(e, value) => updateRSVP(e, {plus_one: value === 'yes'})}
                 >
-                  <FormControlLabel value="yes" control={<Radio />} label="Yep" />
-                  <FormControlLabel value="no" control={<Radio />} label="Nope" />
+                  <FormControlLabel value="yes" control={<Radio size="small" />} label="Yep" />
+                  <FormControlLabel value="no" control={<Radio size="small" />} label="Nope" />
+                </RadioGroup>
+              </FormControl>
+            </>
+          )}
+          {rsvp.plus_one && (
+            <>
+              <Divider />
+              <FormControl>
+                <FormLabel id="guest-meal-choice-group" className="rsvp-label">
+                  what is your guest's meal preference?
+                </FormLabel>
+                <RadioGroup
+                  aria-labelledby="guest-meal-choice-group"
+                  name="guest-meal-choice"
+                  value={rsvp.guest_meal_choice}
+                  onChange={(e, value) => updateRSVP(e, {guest_meal_choice: value as MealChoice})}
+                >
+                  <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
+                  <FormControlLabel value="chicken" control={<Radio size="small" />} label="Meat" />
+                  <FormControlLabel
+                    value="vegetarian"
+                    control={<Radio size="small" />}
+                    label="Vegetarian"
+                  />
                 </RadioGroup>
               </FormControl>
             </>
@@ -121,7 +150,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
               <Divider />
               <FormControl>
                 <FormLabel id="rehearsal-dinner-group" className="rsvp-label">
-                  can you attend the welcome party?
+                  can you attend the welcome party on june second?
                 </FormLabel>
                 <RadioGroup
                   aria-labelledby="rehearsal-dinner-group"
@@ -129,8 +158,8 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
                   value={rsvp.rehearsal_dinner ? 'yes' : 'no'}
                   onChange={(e, value) => updateRSVP(e, {rehearsal_dinner: value === 'yes'})}
                 >
-                  <FormControlLabel value="yes" control={<Radio />} label="Yep" />
-                  <FormControlLabel value="no" control={<Radio />} label="Nope" />
+                  <FormControlLabel value="yes" control={<Radio size="small" />} label="Yep" />
+                  <FormControlLabel value="no" control={<Radio size="small" />} label="Nope" />
                 </RadioGroup>
               </FormControl>
             </>

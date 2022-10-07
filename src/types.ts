@@ -1,4 +1,4 @@
-export type MealChoice = 'fish' | 'chicken' | 'vegetarian';
+export type MealChoice = 'fish' | 'meat' | 'vegetarian';
 
 export interface RSVP {
   id?: number;
@@ -8,6 +8,7 @@ export interface RSVP {
   rehearsal_dinner: boolean;
   response: boolean;
   meal_choice: MealChoice;
+  guest_meal_choice?: MealChoice;
 }
 
 export interface Guest {

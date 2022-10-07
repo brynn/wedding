@@ -19,6 +19,9 @@ export const getRSVPs = async (): Promise<RSVP[]> => {
 
 export const postRSVP = async (rsvp: RSVP): Promise<RSVP | null> => {
   try {
+    if (!rsvp.plus_one) {
+      rsvp.guest_meal_choice = null;
+    }
     const response = await fetch(`${API_HOST}/api/rsvp`, {
       headers: {
         Accept: 'application/json',
