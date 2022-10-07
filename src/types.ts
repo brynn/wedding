@@ -1,4 +1,4 @@
-type MealChoice = 'fish' | 'chicken' | 'vegetarian';
+export type MealChoice = 'fish' | 'chicken' | 'vegetarian';
 
 export interface RSVP {
   id?: number;

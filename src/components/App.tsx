@@ -41,8 +41,8 @@ const App: React.FC = () => {
   // TODO: add loading bar
   // TODO: add link to Migis map
   // TODO: icon map
-  // TODO: add links
   // TODO: content map (?)
+  // TODO: add link to registry
 
   let cardContent = (
     <p className="thanks">
