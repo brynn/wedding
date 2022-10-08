@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   TextField,
   Button,
@@ -9,29 +9,46 @@ import {
   RadioGroup,
   Divider,
 } from '@mui/material';
-import {postRSVP} from '../backend';
+import {getRSVP, sendOrUpdateRSVP} from '../backend';
 import {RSVP, Guest, MealChoice} from '../types';
 
 interface Props {
   guest: Guest;
   setSent: (sent: boolean) => void;
   setResponse: (response: boolean) => void;
+  updating: boolean;
+  setUpdating?: (updating: boolean) => void;
 }
 
-const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
+const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUpdating}: Props) => {
   const {name, email, plus_one_allowed, rehearsal_dinner_allowed} = guest;
-  const [rsvp, setRSVP] = useState<Partial<RSVP>>({
-    name,
-    email,
-    response: true,
-    plus_one: true,
-    rehearsal_dinner: true,
-    meal_choice: 'fish',
-    guest_meal_choice: 'fish',
-  });
   const [loading, setLoading] = useState<boolean>(false);
+  const [rsvp, setRSVP] = useState<Partial<RSVP>>(
+    updating
+      ? null
+      : {
+          name,
+          email,
+          response: true,
+          plus_one: plus_one_allowed,
+          rehearsal_dinner: rehearsal_dinner_allowed,
+          meal_choice: 'fish',
+          guest_meal_choice: 'fish',
+        },
+  );
 
-  if (!guest) {
+  // If updating the RSVP, call the backend to prefill our existing RSVP values
+  useEffect(() => {
+    const fetchRSVP = async () => {
+      const existingRSVP = await getRSVP(email);
+      setRSVP(existingRSVP);
+    };
+    if (updating && !rsvp) {
+      fetchRSVP();
+    }
+  }, [updating, rsvp, email]);
+
+  if (!guest || !rsvp) {
     return null;
   }
 
@@ -40,15 +57,16 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
     setRSVP({...rsvp, ...updatedRSVP});
   };
 
-  const submitRSVP = async (rsvp: RSVP) => {
+  const submitRSVP = async (rsvp: RSVP, updating: boolean) => {
     try {
       setLoading(true);
-      const newRSVP = await postRSVP(rsvp);
+      const newRSVP = await sendOrUpdateRSVP(rsvp, updating);
       if (newRSVP?.id) {
         setSent(true);
         setResponse(newRSVP.response);
       }
       setLoading(false);
+      setUpdating && setUpdating(false);
     } catch (err) {
       // TODO: show server errors
       setLoading(false);
@@ -94,7 +112,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
               onChange={(e, value) => updateRSVP(e, {meal_choice: value as MealChoice})}
             >
               <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
-              <FormControlLabel value="chicken" control={<Radio size="small" />} label="Meat" />
+              <FormControlLabel value="meat" control={<Radio size="small" />} label="Meat" />
               <FormControlLabel
                 value="vegetarian"
                 control={<Radio size="small" />}
@@ -135,7 +153,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
                   onChange={(e, value) => updateRSVP(e, {guest_meal_choice: value as MealChoice})}
                 >
                   <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
-                  <FormControlLabel value="chicken" control={<Radio size="small" />} label="Meat" />
+                  <FormControlLabel value="meat" control={<Radio size="small" />} label="Meat" />
                   <FormControlLabel
                     value="vegetarian"
                     control={<Radio size="small" />}
@@ -167,12 +185,12 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse}: Props) => {
         </>
       )}
       <Button
-        onClick={() => rsvp && submitRSVP(rsvp as RSVP)}
+        onClick={() => rsvp && submitRSVP(rsvp as RSVP, updating)}
         variant="contained"
         size="large"
         disabled={!rsvp.name}
       >
-        {loading ? 'Loading...' : 'Send RSVP'}
+        {loading ? 'Loading...' : updating ? 'Update RSVP' : 'Send RSVP'}
       </Button>
     </>
   );

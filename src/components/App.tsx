@@ -30,6 +30,7 @@ const App: React.FC = () => {
   const [guest, setGuest] = useState<Guest>();
   const [sent, setSent] = useState<boolean>(guest?.rsvp_sent || false);
   const [response, setResponse] = useState<boolean>(guest?.response || false);
+  const [updating, setUpdating] = useState<boolean>(false);
 
   useEffect(() => {
     if (guest && guest.rsvp_sent) {
@@ -40,23 +41,37 @@ const App: React.FC = () => {
 
   // TODO: add loading bar
   // TODO: add link to Migis map
-  // TODO: icon map
-  // TODO: content map (?)
+  // TODO: icon/content map (?)
   // TODO: add link to registry
 
-  let cardContent = (
-    <p className="thanks">
-      {response
-        ? `thanks for RSVPing, we can't wait to celebrate with you!`
-        : `thanks for RSVPing, you'll be missed!`}
-    </p>
-  );
-  if (!sent) {
-    cardContent = guest ? (
-      <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} />
-    ) : (
-      <EmailForm setGuest={setGuest} />
+  // TODO: refactor this logic so email form is the default and RSVP form doesn't flash
+  // TODO: refactor thanks/update form into its own component
+  let cardContent = <EmailForm setGuest={setGuest} />;
+  if (sent && updating) {
+    cardContent = (
+      <RSVPForm
+        guest={guest}
+        setSent={setSent}
+        setResponse={setResponse}
+        updating={true}
+        setUpdating={setUpdating}
+      />
     );
+  } else if (sent) {
+    cardContent = (
+      <>
+        <p className="thanks">
+          {response
+            ? `thanks for RSVPing, we can't wait to celebrate with you!`
+            : `thanks for RSVPing, you'll be missed!`}
+        </p>
+        <Button onClick={() => setUpdating(true)} variant="contained" size="large">
+          Update RSVP
+        </Button>
+      </>
+    );
+  } else if (guest) {
+    <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />;
   }
 
   return (

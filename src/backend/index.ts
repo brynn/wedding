@@ -1,23 +1,22 @@
 import {API_HOST} from '../consts';
 import {RSVP, Guest} from '../types';
 
-export const getRSVPs = async (): Promise<RSVP[]> => {
-  let RSVPs: RSVP[] = [];
+export const getRSVP = async (email: string): Promise<RSVP | null> => {
   try {
-    const response = await fetch(`${API_HOST}/api/rsvp`, {
+    const response = await fetch(`${API_HOST}/api/rsvp?email=${email}`, {
       headers: {'API-Key': `${process.env.REACT_APP_API_KEY}`},
       method: 'GET',
     });
     if (response.ok) {
-      RSVPs = (await response.json()) as RSVP[];
+      return (await response.json()) as RSVP;
     }
   } catch (err) {
     console.error(err);
   }
-  return RSVPs;
+  return null;
 };
 
-export const postRSVP = async (rsvp: RSVP): Promise<RSVP | null> => {
+export const sendOrUpdateRSVP = async (rsvp: RSVP, updating: boolean): Promise<RSVP | null> => {
   try {
     if (!rsvp.plus_one) {
       rsvp.guest_meal_choice = null;
@@ -28,7 +27,7 @@ export const postRSVP = async (rsvp: RSVP): Promise<RSVP | null> => {
         'Content-Type': 'application/json',
         'API-Key': `${process.env.REACT_APP_API_KEY}`,
       },
-      method: 'POST',
+      method: updating ? 'PUT' : 'POST',
       body: JSON.stringify(rsvp),
     });
     if (response.ok) {
