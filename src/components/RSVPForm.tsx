@@ -48,8 +48,10 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
     }
   }, [updating, rsvp, email]);
 
-  if (!guest || !rsvp) {
+  if (!guest) {
     return null;
+  } else if (!rsvp) {
+    return <p>Loading...</p>;
   }
 
   const updateRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>) => {
