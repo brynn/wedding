@@ -2,7 +2,7 @@ import {createTheme} from '@mui/material/styles';
 
 export const API_HOST = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
-export const NUM_IMAGES = 6;
+export const NUM_IMAGES = 10;
 
 // TODO (brynn): use consts for colors
 export const THEME = createTheme({

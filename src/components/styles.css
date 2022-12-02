@@ -217,9 +217,9 @@ a:hover {
     height: 50vh;
   }
 
-  .photo img {
+  /* .photo img {
     top: -350px;
-  }
+  } */
 
   .content {
     overflow: initial;
@@ -255,7 +255,7 @@ a:hover {
   }
 
   .photo img {
-    top: -300px;
+    top: -200px;
   }
 
   .logo {
