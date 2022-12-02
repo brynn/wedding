@@ -88,7 +88,7 @@ const App: React.FC = () => {
   }
 
   const images = [];
-  for (let i = 1; i < NUM_IMAGES; i++) {
+  for (let i = 1; i <= NUM_IMAGES; i++) {
     images.push({
       original: `/img/ab${i}.jpg`,
     });
