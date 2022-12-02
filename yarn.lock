@@ -2186,6 +2186,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-image-gallery@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-image-gallery/-/react-image-gallery-1.2.0.tgz#b76ff74b312b8343f290ed105f134ee2d31a2ece"
+  integrity sha512-y5OEficUWcnGEc6KvflRXgvhtaMSsDH6JGT3/SJs0FV/RgtKuIgrUpGbDw5MdzyUwe/D8sJTo+aw8NOkaX0nIA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-is@^16.7.1 || ^17.0.0":
   version "17.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
@@ -3453,6 +3460,20 @@ css-loader@^6.5.1:
     postcss-modules-values "^4.0.0"
     postcss-value-parser "^4.2.0"
     semver "^7.3.5"
+
+css-loader@^6.7.2:
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.2.tgz#26bc22401b5921686a10fbeba75d124228302304"
+  integrity sha512-oqGbbVcBJkm8QwmnNzrFrWTnudnRZC+1eXikLJl0n4ljcfotgRifpg2a1lKy8jTrc4/d9A/ap1GFq1jDKG7J+Q==
+  dependencies:
+    icss-utils "^5.1.0"
+    postcss "^8.4.18"
+    postcss-modules-extract-imports "^3.0.0"
+    postcss-modules-local-by-default "^4.0.0"
+    postcss-modules-scope "^3.0.0"
+    postcss-modules-values "^4.0.0"
+    postcss-value-parser "^4.2.0"
+    semver "^7.3.8"
 
 css-minimizer-webpack-plugin@^3.2.0:
   version "3.4.1"
@@ -7242,6 +7263,15 @@ postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.4, postcss@^8.4.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+postcss@^8.4.18:
+  version "8.4.19"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.19.tgz#61178e2add236b17351897c8bcc0b4c8ecab56fc"
+  integrity sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==
+  dependencies:
+    nanoid "^3.3.4"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
@@ -7455,6 +7485,11 @@ react-error-overlay@^6.0.11:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
+
+react-image-gallery@^1.2.11:
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-1.2.11.tgz#707331e71b02964f00c1f3ab98e9efe071ff9f15"
+  integrity sha512-YLMCdNSCf3YPhRmnjEOdEZGEXghTMx4o3dlAqd0rz0nAyebUvTz/xJnIHPActbPSHCvVJgt5A09EPHYbGqw++w==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -7809,6 +7844,14 @@ sass-loader@^12.3.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
+sass-loader@^13.2.0:
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-13.2.0.tgz#80195050f58c9aac63b792fa52acb6f5e0f6bdc3"
+  integrity sha512-JWEp48djQA4nbZxmgC02/Wh0eroSUutulROUusYJO9P9zltRbNN80JCBHqRGzjd4cmZCa/r88xgfkjGD0TXsHg==
+  dependencies:
+    klona "^2.0.4"
+    neo-async "^2.6.2"
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -7886,6 +7929,13 @@ semver@^7.3.2, semver@^7.3.5, semver@^7.3.7:
   version "7.3.7"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
   integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
+  dependencies:
+    lru-cache "^6.0.0"
+
+semver@^7.3.8:
+  version "7.3.8"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.8.tgz#07a78feafb3f7b32347d725e33de7e2a2df67798"
+  integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
   dependencies:
     lru-cache "^6.0.0"
 

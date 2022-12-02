@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import ImageGallery from 'react-image-gallery';
+
 import {Card, Button, Divider} from '@mui/material';
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
@@ -25,6 +27,7 @@ import RSVPForm from './RSVPForm';
 import EmailForm from './EmailForm';
 import Section from './Section';
 import Item from './Item';
+import {NUM_IMAGES} from '../consts';
 
 const App: React.FC = () => {
   const [guest, setGuest] = useState<Guest>();
@@ -73,6 +76,7 @@ const App: React.FC = () => {
             href="https://forms.office.com/pages/responsepage.aspx?id=KuxuzI7XB0q7huxnBYH0EatEVNsLYHFDi-9clDMNPpJUNERJSFgwMUdQVEZPWE9ITVYyUjUzTjVINCQlQCN0PWcu"
             variant="contained"
             size="large"
+            target="_blank"
           >
             Book Lodging at Migis
           </Button>
@@ -83,10 +87,24 @@ const App: React.FC = () => {
     <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />;
   }
 
+  const images = [];
+  for (let i = 1; i < NUM_IMAGES; i++) {
+    images.push({
+      original: `/img/ab${i}.jpg`,
+    });
+  }
+
   return (
     <div className="App">
       <div className="photo">
-        <img src="/img/ab2.jpg" alt="Andrew &amp; Brynn" />
+        <ImageGallery
+          items={images}
+          showThumbnails={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          autoPlay={true}
+          showNav={false}
+        />
       </div>
       <div className="content">
         <div className="intro section">
