@@ -104,6 +104,7 @@ const App: React.FC = () => {
           showPlayButton={false}
           autoPlay={true}
           showNav={false}
+          lazyLoad={true}
         />
       </div>
       <div className="content">
