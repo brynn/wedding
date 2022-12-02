@@ -62,7 +62,7 @@ h3 {
 
 .photo img {
   width: 100%;
-  top: -100px;
+  top: -300px;
   position: relative;
 }
 
@@ -245,7 +245,7 @@ a:hover {
   }
 
   .photo img {
-    top: -100px;
+    top: -300px;
   }
 
   .logo {

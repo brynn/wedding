@@ -65,9 +65,18 @@ const App: React.FC = () => {
             ? `thanks for RSVPing, we can't wait to celebrate with you!`
             : `thanks for RSVPing, you'll be missed!`}
         </p>
-        <Button onClick={() => setUpdating(true)} variant="contained" size="large">
-          Update RSVP
-        </Button>
+        <div>
+          <Button onClick={() => setUpdating(true)} variant="contained" size="large">
+            Update RSVP
+          </Button>
+          <Button
+            href="https://forms.office.com/pages/responsepage.aspx?id=KuxuzI7XB0q7huxnBYH0EatEVNsLYHFDi-9clDMNPpJUNERJSFgwMUdQVEZPWE9ITVYyUjUzTjVINCQlQCN0PWcu"
+            variant="contained"
+            size="large"
+          >
+            Book Lodging at Migis
+          </Button>
+        </div>
       </>
     );
   } else if (guest) {
@@ -77,7 +86,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="photo">
-        <img src="/img/ab.jpg" alt="Andrew &amp; Brynn" />
+        <img src="/img/ab2.jpg" alt="Andrew &amp; Brynn" />
       </div>
       <div className="content">
         <div className="intro section">
@@ -111,6 +120,10 @@ const App: React.FC = () => {
             <p className="serif date">june third, two thousand &amp; twenty-three</p>
             <Button variant="contained" size="large" href="#rsvp" color="secondary">
               RSVP
+              <span className="amp" style={{margin: '0 5px'}}>
+                &amp;
+              </span>
+              Book Lodging
             </Button>
           </div>
         </div>
