@@ -21,10 +21,10 @@ interface Props {
   setUpdating?: (updating: boolean) => void;
 }
 
-// TODO (brynn):
+// TODO (brynn): refactor a bunch of this
 
 const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUpdating}: Props) => {
-  const {name, email, plus_one_allowed, plus_one_name} = guest;
+  const {name, email, plus_one_allowed, plus_one_name, plus_one_email} = guest;
   const [loading, setLoading] = useState<boolean>(false);
   const [rsvp, setRSVP] = useState<Partial<RSVP>>(
     updating
@@ -33,19 +33,34 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
           name,
           email,
           response: true,
+          rehearsal_dinner: true,
           meal_choice: 'fish',
-          guest_meal_choice: 'fish',
+        },
+  );
+  const [guestRSVP, setGuestRSVP] = useState<Partial<RSVP>>(
+    updating
+      ? null
+      : {
+          name: plus_one_name,
+          email: plus_one_email,
+          response: true,
+          rehearsal_dinner: true,
+          meal_choice: 'fish',
         },
   );
 
   // If updating the RSVP, call the backend to prefill our existing RSVP values
   useEffect(() => {
-    const fetchRSVP = async () => {
+    const fetchRSVPs = async () => {
       const existingRSVP = await getRSVP(email);
       setRSVP(existingRSVP);
+      if (plus_one_allowed) {
+        const existingGuestRSVP = await getRSVP(plus_one_email);
+        setGuestRSVP(existingGuestRSVP);
+      }
     };
-    if (updating && !rsvp) {
-      fetchRSVP();
+    if (updating && !rsvp && plus_one_allowed && !guestRSVP) {
+      fetchRSVPs();
     }
   }, [updating, rsvp, email]);
 
@@ -78,7 +93,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
 
   return (
     <>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', columnGap: '20px'}}>
         <Card>
           <TextField
             id="name"
@@ -149,7 +164,6 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
               id="plus-one-name"
               label="Guest's Name"
               variant="outlined"
-              autoFocus
               // Name is editable but defaults to the value we started with in the guest table
               value={plus_one_name}
               onChange={(e) => updateRSVP(e, {name: e.target.value})}
