@@ -21,11 +21,18 @@ interface Props {
   setUpdating?: (updating: boolean) => void;
 }
 
+interface RSVPs {
+  guest: RSVP;
+  existing_plus_one: RSVP;
+  new_plus_one: RSVP;
+}
+
 // TODO (brynn): refactor a bunch of this
 
 const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUpdating}: Props) => {
   const {name, email, plus_one_allowed, plus_one_name, plus_one_email} = guest;
   const [loading, setLoading] = useState<boolean>(false);
+  // TODO (brynn): change this to an array of two RSVPs -- or object
   const [rsvp, setRSVP] = useState<Partial<RSVP>>(
     updating
       ? null
@@ -93,16 +100,25 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
 
   return (
     <>
-      <div style={{display: 'flex', columnGap: '20px'}}>
+      <div style={plus_one_allowed ? {display: 'flex', columnGap: '20px'} : null}>
         <Card>
           <TextField
             id="name"
             label="Name"
             variant="outlined"
+            size="small"
             autoFocus
             // Name is editable but defaults to the value we started with in the guest table
             value={rsvp.name}
             onChange={(e) => updateRSVP(e, {name: e.target.value})}
+          />
+          <TextField
+            id="email"
+            label="Email"
+            variant="outlined"
+            size="small"
+            value={rsvp.email}
+            onChange={(e) => updateRSVP(e, {email: e.target.value})}
           />
           <FormControl>
             <FormLabel id="response-group" className="rsvp-label">
@@ -167,6 +183,14 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
               // Name is editable but defaults to the value we started with in the guest table
               value={plus_one_name}
               onChange={(e) => updateRSVP(e, {name: e.target.value})}
+            />
+            <TextField
+              id="email"
+              label="Guest's Email"
+              variant="outlined"
+              size="small"
+              value={plus_one_email}
+              onChange={(e) => updateRSVP(e, {email: e.target.value})}
             />
             <FormControl>
               <FormLabel id="response-group" className="rsvp-label">
