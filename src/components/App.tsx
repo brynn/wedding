@@ -86,9 +86,7 @@ const App: React.FC = () => {
     );
   } else if (guest) {
     cardContent = (
-      <div style={{display: 'flex'}}>
-        <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />
-      </div>
+      <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />
     );
   }
 
