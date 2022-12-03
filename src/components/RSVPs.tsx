@@ -11,7 +11,7 @@ import {
   Card,
 } from '@mui/material';
 import {getRSVP, sendOrUpdateRSVP} from '../backend';
-import {RSVP, Guest, MealChoice, RSVPs} from '../types';
+import {RSVP, Guest, RSVPs} from '../types';
 import {DEFAULT_RSVP} from '../consts';
 import RSVPForm from './RSVPForm';
 
@@ -26,12 +26,21 @@ interface Props {
 // Mobile design shouldn't have two columns
 
 const RSVPs: React.FC<Props> = ({guest}: Props) => {
+  if (!guest) {
+    return null;
+  }
+
   const {name, email, plus_one_allowed, plus_one, rsvp} = guest;
   const [loading, setLoading] = useState<boolean>(false);
 
   const [rsvps, setRSVPs] = useState<RSVPs>({
-    guest: {...DEFAULT_RSVP, ...guest.rsvp},
-    plus_one: {...DEFAULT_RSVP, ...guest.plus_one?.rsvp},
+    guest_rsvp: {...DEFAULT_RSVP, ...rsvp, name, email},
+    plus_one_rsvp: {
+      ...DEFAULT_RSVP,
+      ...plus_one?.rsvp,
+      name: plus_one?.name,
+      email: plus_one?.email,
+    },
   });
 
   // If updating the RSVP, call the backend to prefill our existing RSVP values
@@ -48,12 +57,6 @@ const RSVPs: React.FC<Props> = ({guest}: Props) => {
   //     fetchRSVPs();
   //   }
   // }, [updating, rsvp, email]);
-
-  if (!guest) {
-    return null;
-  } else if (!rsvps) {
-    return <p>Loading...</p>;
-  }
 
   const updateRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
     e.preventDefault();
@@ -81,21 +84,21 @@ const RSVPs: React.FC<Props> = ({guest}: Props) => {
   //     setLoading(false);
   //   }
   // };
+  const {guest_rsvp, plus_one_rsvp} = rsvps;
 
   return (
     <>
       <div style={plus_one_allowed ? {display: 'flex', columnGap: '20px'} : null}>
-        <RSVPForm rsvp={rsvps.guest} guestType="guest" updateRSVP={updateRSVP} />
-        TODO:
+        <RSVPForm rsvp={guest_rsvp} rsvpType="guest_rsvp" updateRSVP={updateRSVP} />
         {plus_one_allowed && (
-          <RSVPForm rsvp={rsvps.plus_one} guestType="plus_one" updateRSVP={updateRSVP} />
+          <RSVPForm rsvp={plus_one_rsvp} rsvpType="plus_one_rsvp" updateRSVP={updateRSVP} />
         )}
       </div>
       <Button
         // onClick={() => rsvp && submitRSVP(rsvp as RSVP, updatingRsvp)}
         variant="contained"
         size="large"
-        disabled={!rsvps.guest.name || (plus_one_allowed && !rsvps.plus_one.name)}
+        disabled={!guest_rsvp.name || (plus_one_allowed && !plus_one_rsvp.name)}
       >
         {loading ? 'Loading...' : guest.rsvp ? 'Update RSVP' : 'Send RSVP'}
       </Button>
