@@ -2,13 +2,12 @@ export type MealChoice = 'fish' | 'meat' | 'vegetarian';
 
 export interface RSVP {
   id?: number;
+  plus_one_id?: number;
   name: string;
   email: string;
-  plus_one: boolean;
-  rehearsal_dinner: boolean;
   response: boolean;
+  rehearsal_dinner: boolean;
   meal_choice: MealChoice;
-  guest_meal_choice?: MealChoice;
 }
 
 export interface Guest {
@@ -16,9 +15,11 @@ export interface Guest {
   name: string;
   email: string;
   plus_one_allowed: boolean;
-  rsvp_sent: boolean;
-  response: boolean;
-  plus_one_name: string;
-  plus_one_email: string;
-  plus_one_response: string;
+  plus_one: Guest;
+  rsvp: RSVP;
+}
+
+export interface RSVPs {
+  guest: Partial<RSVP>;
+  plus_one: Partial<RSVP>;
 }

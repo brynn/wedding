@@ -1,5 +1,5 @@
 import {API_HOST} from '../consts';
-import {RSVP, Guest} from '../types';
+import {RSVP, Guest, RSVPs} from '../types';
 
 export const getRSVP = async (email: string): Promise<RSVP | null> => {
   try {
@@ -16,11 +16,8 @@ export const getRSVP = async (email: string): Promise<RSVP | null> => {
   return null;
 };
 
-export const sendOrUpdateRSVP = async (rsvp: RSVP, updating: boolean): Promise<RSVP | null> => {
+export const sendOrUpdateRSVP = async (rsvps: RSVPs, updating: boolean): Promise<RSVPs | null> => {
   try {
-    if (!rsvp.plus_one) {
-      rsvp.guest_meal_choice = null;
-    }
     const response = await fetch(`${API_HOST}/api/rsvp`, {
       headers: {
         Accept: 'application/json',
@@ -28,10 +25,10 @@ export const sendOrUpdateRSVP = async (rsvp: RSVP, updating: boolean): Promise<R
         'API-Key': `${process.env.REACT_APP_API_KEY}`,
       },
       method: updating ? 'PUT' : 'POST',
-      body: JSON.stringify(rsvp),
+      body: JSON.stringify(rsvps),
     });
     if (response.ok) {
-      return (await response.json()) as RSVP;
+      return (await response.json()) as RSVPs;
     }
   } catch (err) {
     console.error(err);

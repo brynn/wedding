@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import ImageGallery from 'react-image-gallery';
 
 import {Card, Button, Divider} from '@mui/material';
+
+// TODO: put these in their own file
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import EggAltOutlinedIcon from '@mui/icons-material/EggAltOutlined';
@@ -23,93 +24,43 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import './styles.css';
 
 import {Guest} from '../types';
-import RSVPForm from './RSVPForm';
+import RSVPs from './RSVPs';
 import EmailForm from './EmailForm';
+import ThanksForm from './ThanksForm';
 import Section from './Section';
 import Item from './Item';
-import {NUM_IMAGES} from '../consts';
+import Gallery from './Gallery';
 
 const App: React.FC = () => {
-  const [guest, setGuest] = useState<Guest>();
-  const [sent, setSent] = useState<boolean>(guest?.rsvp_sent || false);
-  const [response, setResponse] = useState<boolean>(guest?.response || false);
-  const [updating, setUpdating] = useState<boolean>(false);
+  const [guest, setGuest] = useState<Guest>(null);
+  const [updatingRSVP, setUpdatingRSVP] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (guest && guest.rsvp_sent) {
-      setSent(true);
-      setResponse(guest.response);
-    }
-  }, [guest]);
+  // useEffect(() => {
+  //   if (guest?.rsvp) {
+  //     setRSVPSent(true);
+  //     setResponse(guest.rsvp.response);
+  //   }
+  // }, [guest]);
 
   // TODO: add loading bar
   // TODO: add link to Migis map
   // TODO: icon/content map (?)
   // TODO: add link to registry
-  // TODO: refactor image gallery into its own component
 
   // TODO: refactor this logic so email form is the default and RSVP form doesn't flash
   // TODO: refactor thanks/update form into its own component
   let cardContent = <EmailForm setGuest={setGuest} />;
-  if (sent && updating) {
-    cardContent = (
-      <RSVPForm
-        guest={guest}
-        setSent={setSent}
-        setResponse={setResponse}
-        updating={true}
-        setUpdating={setUpdating}
-      />
-    );
-  } else if (sent) {
-    cardContent = (
-      <Card>
-        <p className="thanks">
-          {response
-            ? `thanks for RSVPing, we can't wait to celebrate with you!`
-            : `thanks for RSVPing, you'll be missed!`}
-        </p>
-        <div>
-          <Button onClick={() => setUpdating(true)} variant="contained" size="large">
-            Update RSVP
-          </Button>
-          <Button
-            href="https://forms.office.com/pages/responsepage.aspx?id=KuxuzI7XB0q7huxnBYH0EatEVNsLYHFDi-9clDMNPpJUNERJSFgwMUdQVEZPWE9ITVYyUjUzTjVINCQlQCN0PWcu"
-            variant="contained"
-            size="large"
-            target="_blank"
-          >
-            Book Lodging at Migis
-          </Button>
-        </div>
-      </Card>
-    );
-  } else if (guest) {
-    cardContent = (
-      <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />
-    );
-  }
-
-  const images = [];
-  for (let i = 1; i <= NUM_IMAGES; i++) {
-    images.push({
-      original: `/img/ab${i}.jpg`,
-    });
+  if (!guest?.rsvp || (guest?.rsvp && updatingRSVP)) {
+    // Show the RSVP form if we've loaded a guest that hasn't sent theirs yet
+    // Or if the guest has but clicked the "Update RSVP button"
+    cardContent = <RSVPs guest={guest} />;
+  } else if (guest?.rsvp) {
+    cardContent = <ThanksForm response={guest.rsvp.response} setUpdatingRSVP={setUpdatingRSVP} />;
   }
 
   return (
     <div className="App">
-      <div className="photo">
-        <ImageGallery
-          items={images}
-          showThumbnails={false}
-          showFullscreenButton={false}
-          showPlayButton={false}
-          autoPlay={true}
-          showNav={false}
-          lazyLoad={true}
-        />
-      </div>
+      <Gallery />
       <div className="content">
         <div className="intro section">
           <ul className="nav">

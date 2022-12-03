@@ -1,8 +1,15 @@
 import {createTheme} from '@mui/material/styles';
+import {RSVP} from './types';
 
 export const API_HOST = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
 export const NUM_IMAGES = 10;
+
+export const DEFAULT_RSVP: Partial<RSVP> = {
+  response: true,
+  meal_choice: 'fish',
+  rehearsal_dinner: true,
+};
 
 // TODO (brynn): use consts for colors
 export const THEME = createTheme({
