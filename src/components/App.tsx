@@ -46,6 +46,7 @@ const App: React.FC = () => {
   // TODO: add link to Migis map
   // TODO: icon/content map (?)
   // TODO: add link to registry
+  // TODO: refactor image gallery into its own component
 
   // TODO: refactor this logic so email form is the default and RSVP form doesn't flash
   // TODO: refactor thanks/update form into its own component
@@ -62,7 +63,7 @@ const App: React.FC = () => {
     );
   } else if (sent) {
     cardContent = (
-      <>
+      <Card>
         <p className="thanks">
           {response
             ? `thanks for RSVPing, we can't wait to celebrate with you!`
@@ -81,7 +82,7 @@ const App: React.FC = () => {
             Book Lodging at Migis
           </Button>
         </div>
-      </>
+      </Card>
     );
   } else if (guest) {
     cardContent = (
@@ -401,7 +402,7 @@ const App: React.FC = () => {
 
         <Section id="rsvp">
           <h2>RSVP</h2>
-          <Card>{cardContent}</Card>
+          {cardContent}
         </Section>
       </div>
     </div>

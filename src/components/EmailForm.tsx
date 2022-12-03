@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextField, Button} from '@mui/material';
+import {TextField, Button, Card} from '@mui/material';
 import {Guest} from '../types';
 import {getGuest} from '../backend';
 
@@ -31,7 +31,7 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
   };
 
   return (
-    <>
+    <Card>
       <TextField
         id="email"
         type="email"
@@ -50,7 +50,7 @@ const EmailForm: React.FC<Props> = ({setGuest}: Props) => {
       >
         {loading ? 'Loading...' : 'Confirm Email'}
       </Button>
-    </>
+    </Card>
   );
 };
 
