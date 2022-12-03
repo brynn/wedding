@@ -23,16 +23,21 @@ interface Props {
 
 interface RSVPs {
   guest: RSVP;
-  existing_plus_one: RSVP;
+  plus_one: RSVP;
   new_plus_one: RSVP;
 }
 
 // TODO (brynn): refactor a bunch of this
+// Components for guest RSVP, existing plus one, and new plus one
+// New plus one form doesn't have "can you attend the wedding option"
+// "I'm bringing a guest" button for new plus ones
+// Mobile design shouldn't have two columns
+// Disable send rsvp button if either name is blank
 
 const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUpdating}: Props) => {
   const {name, email, plus_one_allowed, plus_one_name, plus_one_email} = guest;
   const [loading, setLoading] = useState<boolean>(false);
-  // TODO (brynn): change this to an array of two RSVPs -- or object
+  // TODO (brynn): change this to RSVPs object -- all get sent together
   const [rsvp, setRSVP] = useState<Partial<RSVP>>(
     updating
       ? null
@@ -180,7 +185,7 @@ const RSVPForm: React.FC<Props> = ({guest, setSent, setResponse, updating, setUp
               id="plus-one-name"
               label="Guest's Name"
               variant="outlined"
-              // Name is editable but defaults to the value we started with in the guest table
+              size="small"
               value={plus_one_name}
               onChange={(e) => updateRSVP(e, {name: e.target.value})}
             />
