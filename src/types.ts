@@ -20,6 +20,6 @@ export interface Guest {
 }
 
 export interface RSVPs {
-  guest_rsvp: Partial<RSVP>;
-  plus_one_rsvp: Partial<RSVP>;
+  guest_rsvp: RSVP;
+  plus_one_rsvp: RSVP;
 }

@@ -13,19 +13,24 @@ import {
 import {MealChoice, RSVP, RSVPs} from '../types';
 
 interface Props {
-  rsvp: Partial<RSVP>;
+  rsvps: RSVPs;
   rsvpType: keyof RSVPs;
   updateRSVP: (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, rsvpType: keyof RSVPs) => void;
 }
 
-const RSVPForm: React.FC<Props> = ({rsvp, rsvpType, updateRSVP}: Props) => {
-  const [newPlusOne] = useState<boolean>(rsvpType === 'plus_one_rsvp' && !rsvp?.name);
+const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, updateRSVP}: Props) => {
+  const [newPlusOne] = useState<boolean>(rsvpType === 'plus_one_rsvp' && !rsvps.plus_one_rsvp.name);
   const [addingPlusOne, setAddingPlusOne] = useState<boolean>(false);
 
   if (newPlusOne && !addingPlusOne) {
     return (
       <Card>
-        <Button onClick={() => setAddingPlusOne(true)} variant="contained" size="large">
+        <Button
+          onClick={() => setAddingPlusOne(true)}
+          variant="contained"
+          size="large"
+          disabled={!rsvps.guest_rsvp.response}
+        >
           I'm Bringing a Plus One
         </Button>
       </Card>
@@ -34,32 +39,32 @@ const RSVPForm: React.FC<Props> = ({rsvp, rsvpType, updateRSVP}: Props) => {
   return (
     <Card>
       <TextField
-        id="name"
+        id={`name-${rsvpType}`}
         label="Name"
         variant="outlined"
         size="small"
-        autoFocus
-        value={rsvp.name}
+        autoFocus={rsvpType === 'guest_rsvp'}
+        value={rsvps[rsvpType].name}
         onChange={(e) => updateRSVP(e, {name: e.target.value}, rsvpType)}
       />
       <TextField
-        id="email"
+        id={`email-${rsvpType}`}
         label="Email"
         variant="outlined"
         size="small"
-        value={rsvp.email}
+        value={rsvps[rsvpType].email}
         onChange={(e) => updateRSVP(e, {email: e.target.value}, rsvpType)}
       />
       {/* We assume that new plus ones can attend */}
       {!addingPlusOne && (
         <FormControl>
-          <FormLabel id="response-group" className="rsvp-label">
+          <FormLabel id={`response-group-${rsvpType}`} className="rsvp-label">
             can you attend the wedding?
           </FormLabel>
           <RadioGroup
-            aria-labelledby="response-group"
+            aria-labelledby={`response-group-${rsvpType}`}
             name="response"
-            value={rsvp.response ? 'yes' : 'no'}
+            value={rsvps[rsvpType].response ? 'yes' : 'no'}
             onChange={(e, value) => updateRSVP(e, {response: value === 'yes'}, rsvpType)}
           >
             <FormControlLabel value="yes" control={<Radio size="small" />} label="Can't wait!" />
@@ -67,17 +72,17 @@ const RSVPForm: React.FC<Props> = ({rsvp, rsvpType, updateRSVP}: Props) => {
           </RadioGroup>
         </FormControl>
       )}
-      {rsvp.response && (
+      {rsvps[rsvpType].response && (
         <>
           <Divider />
           <FormControl>
-            <FormLabel id="meal-choice-group" className="rsvp-label">
+            <FormLabel id={`meal-choice-group-${rsvpType}`} className="rsvp-label">
               what is your meal preference?
             </FormLabel>
             <RadioGroup
-              aria-labelledby="meal-choice-group"
+              aria-labelledby={`meal-choice-group-${rsvpType}`}
               name="meal-choice"
-              value={rsvp.meal_choice}
+              value={rsvps[rsvpType].meal_choice}
               onChange={(e, value) => updateRSVP(e, {meal_choice: value as MealChoice}, rsvpType)}
             >
               <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
@@ -91,13 +96,13 @@ const RSVPForm: React.FC<Props> = ({rsvp, rsvpType, updateRSVP}: Props) => {
           </FormControl>
           <Divider />
           <FormControl>
-            <FormLabel id="rehearsal-dinner-group" className="rsvp-label">
+            <FormLabel id={`rehearsal-dinner-group-${rsvpType}`} className="rsvp-label">
               can you attend the welcome party on june second?
             </FormLabel>
             <RadioGroup
-              aria-labelledby="rehearsal-dinner-group"
+              aria-labelledby={`rehearsal-dinner-group-${rsvpType}`}
               name="rehearsal-dinner"
-              value={rsvp.rehearsal_dinner ? 'yes' : 'no'}
+              value={rsvps[rsvpType].rehearsal_dinner ? 'yes' : 'no'}
               onChange={(e, value) => updateRSVP(e, {rehearsal_dinner: value === 'yes'}, rsvpType)}
             >
               <FormControlLabel value="yes" control={<Radio size="small" />} label="Yep" />

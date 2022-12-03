@@ -24,7 +24,7 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import './styles.css';
 
 import {Guest} from '../types';
-import RSVPs from './RSVPs';
+import RSVPForms from './RSVPForms';
 import EmailForm from './EmailForm';
 import ThanksForm from './ThanksForm';
 import Section from './Section';
@@ -35,27 +35,18 @@ const App: React.FC = () => {
   const [guest, setGuest] = useState<Guest>(null);
   const [updatingRSVP, setUpdatingRSVP] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   if (guest?.rsvp) {
-  //     setRSVPSent(true);
-  //     setResponse(guest.rsvp.response);
-  //   }
-  // }, [guest]);
-
   // TODO: add loading bar
   // TODO: add link to Migis map
   // TODO: icon/content map (?)
   // TODO: add link to registry
 
-  // TODO: refactor this logic so email form is the default and RSVP form doesn't flash
-  // TODO: refactor thanks/update form into its own component
-  let cardContent = <EmailForm setGuest={setGuest} />;
-  if (!guest?.rsvp || (guest?.rsvp && updatingRSVP)) {
+  let rsvpContent = <EmailForm setGuest={setGuest} />;
+  if (guest && (!guest.rsvp || updatingRSVP)) {
     // Show the RSVP form if we've loaded a guest that hasn't sent theirs yet
     // Or if the guest has but clicked the "Update RSVP button"
-    cardContent = <RSVPs guest={guest} />;
-  } else if (guest?.rsvp) {
-    cardContent = <ThanksForm response={guest.rsvp.response} setUpdatingRSVP={setUpdatingRSVP} />;
+    rsvpContent = <RSVPForms guest={guest} />;
+  } else if (guest && guest.rsvp) {
+    rsvpContent = <ThanksForm response={guest.rsvp.response} setUpdatingRSVP={setUpdatingRSVP} />;
   }
 
   return (
@@ -351,7 +342,7 @@ const App: React.FC = () => {
 
         <Section id="rsvp">
           <h2>RSVP</h2>
-          {cardContent}
+          {rsvpContent}
         </Section>
       </div>
     </div>
