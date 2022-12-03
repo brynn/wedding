@@ -84,7 +84,11 @@ const App: React.FC = () => {
       </>
     );
   } else if (guest) {
-    <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />;
+    cardContent = (
+      <div style={{display: 'flex'}}>
+        <RSVPForm guest={guest} setSent={setSent} setResponse={setResponse} updating={false} />
+      </div>
+    );
   }
 
   const images = [];
