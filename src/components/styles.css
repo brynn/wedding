@@ -203,6 +203,15 @@ a:hover {
   margin: 0 5px;
 }
 
+.rsvp-forms {
+  display: flex;
+  column-gap: 20px;
+}
+
+.rsvp-form {
+  flex: 1;
+}
+
 @media only screen and (max-width: 1440px) {
   .App {
     flex-direction: column;

@@ -2,12 +2,12 @@ export type MealChoice = 'fish' | 'meat' | 'vegetarian';
 
 export interface RSVP {
   id?: number;
-  plus_one_id?: number;
+  guest_id?: number;
   name: string;
   email: string;
   response: boolean;
-  rehearsal_dinner: boolean;
   meal_choice: MealChoice;
+  rehearsal_dinner: boolean;
 }
 
 export interface Guest {

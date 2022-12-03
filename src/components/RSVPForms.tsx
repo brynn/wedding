@@ -1,28 +1,35 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Button} from '@mui/material';
-import {getRSVP, sendOrUpdateRSVP} from '../backend';
+import {getGuest, sendOrUpdateRSVP} from '../backend';
 import {RSVP, Guest, RSVPs} from '../types';
 import {DEFAULT_RSVP} from '../consts';
 import RSVPForm from './RSVPForm';
 
 interface Props {
   guest: Guest;
+  setGuest: (g: Guest) => void;
+  setUpdatingRSVP: (u: boolean) => void;
 }
 
 // TODO (brynn): refactor a bunch of this
-// Components for guest RSVP, existing plus one, and new plus one
-// New plus one form doesn't have "can you attend the wedding option" or email
-// "I'm bringing a guest" button for new plus ones
 // Mobile design shouldn't have two columns
 
-const RSVPForms: React.FC<Props> = ({guest}: Props) => {
+const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
   const [rsvps, setRSVPs] = useState<RSVPs>({
-    guest_rsvp: {...DEFAULT_RSVP, ...guest?.rsvp, name: guest?.name, email: guest?.email},
+    guest_rsvp: {
+      ...DEFAULT_RSVP,
+      ...guest?.rsvp,
+      guest_id: guest?.id,
+      name: guest?.name,
+      email: guest?.email,
+    },
     plus_one_rsvp: {
       ...DEFAULT_RSVP,
       ...guest?.plus_one?.rsvp,
+      guest_id: guest?.plus_one?.id,
       name: guest?.plus_one?.name,
       email: guest?.plus_one?.email,
     },
@@ -32,8 +39,14 @@ const RSVPForms: React.FC<Props> = ({guest}: Props) => {
     return;
   }
 
-  const updateRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
+  const setRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
     e.preventDefault();
+    if (guestType === 'guest_rsvp' && updatedRSVP.hasOwnProperty('response')) {
+      setGuest({
+        ...guest,
+        plus_one_allowed: updatedRSVP.response,
+      });
+    }
     setRSVPs({
       ...rsvps,
       [guestType]: {
@@ -46,22 +59,32 @@ const RSVPForms: React.FC<Props> = ({guest}: Props) => {
   const submitRSVP = async (rsvps: RSVPs, updating: boolean) => {
     try {
       setLoading(true);
-      const newRSVPs = await sendOrUpdateRSVP(rsvps, updating);
-      setRSVPs(newRSVPs);
+      const response = await sendOrUpdateRSVP(rsvps, updating);
+      if ((response as RSVPs)?.guest_rsvp) {
+        setRSVPs(response as RSVPs);
+
+        // Fetch updated guest info from server
+        setGuest((await getGuest((response as RSVPs).guest_rsvp.email)) as Guest);
+        setUpdatingRSVP(false);
+        setError(null);
+      } else {
+        setError(response as string);
+      }
       setLoading(false);
     } catch (err) {
       // TODO: show server errors
+      console.error(err);
       setLoading(false);
     }
   };
-  const {guest_rsvp, plus_one_rsvp} = rsvps;
 
+  const {guest_rsvp, plus_one_rsvp} = rsvps;
   return (
     <>
-      <div style={guest.plus_one_allowed ? {display: 'flex', columnGap: '20px'} : null}>
-        <RSVPForm rsvps={rsvps} rsvpType="guest_rsvp" updateRSVP={updateRSVP} />
+      <div className={guest.plus_one_allowed ? 'rsvp-forms' : null}>
+        <RSVPForm rsvps={rsvps} rsvpType="guest_rsvp" setRSVP={setRSVP} />
         {guest.plus_one_allowed && (
-          <RSVPForm rsvps={rsvps} rsvpType="plus_one_rsvp" updateRSVP={updateRSVP} />
+          <RSVPForm rsvps={rsvps} rsvpType="plus_one_rsvp" setRSVP={setRSVP} error={error} />
         )}
       </div>
       <Button

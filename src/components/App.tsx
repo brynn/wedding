@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
-import {Card, Button, Divider} from '@mui/material';
+import {Button, Divider} from '@mui/material';
 
 // TODO: put these in their own file
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
@@ -44,7 +44,7 @@ const App: React.FC = () => {
   if (guest && (!guest.rsvp || updatingRSVP)) {
     // Show the RSVP form if we've loaded a guest that hasn't sent theirs yet
     // Or if the guest has but clicked the "Update RSVP button"
-    rsvpContent = <RSVPForms guest={guest} />;
+    rsvpContent = <RSVPForms guest={guest} setGuest={setGuest} setUpdatingRSVP={setUpdatingRSVP} />;
   } else if (guest && guest.rsvp) {
     rsvpContent = <ThanksForm response={guest.rsvp.response} setUpdatingRSVP={setUpdatingRSVP} />;
   }

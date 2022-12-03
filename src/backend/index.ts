@@ -16,7 +16,11 @@ export const getRSVP = async (email: string): Promise<RSVP | null> => {
   return null;
 };
 
-export const sendOrUpdateRSVP = async (rsvps: RSVPs, updating: boolean): Promise<RSVPs | null> => {
+// TODO: make this just sendRSVP, only POST
+export const sendOrUpdateRSVP = async (
+  rsvps: RSVPs,
+  updating: boolean,
+): Promise<RSVPs | string | null> => {
   try {
     const response = await fetch(`${API_HOST}/api/rsvp`, {
       headers: {
@@ -29,6 +33,9 @@ export const sendOrUpdateRSVP = async (rsvps: RSVPs, updating: boolean): Promise
     });
     if (response.ok) {
       return (await response.json()) as RSVPs;
+    } else {
+      // TODO: figure out how to decode the error response
+      return Promise.resolve('Name is required');
     }
   } catch (err) {
     console.error(err);
