@@ -48,7 +48,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
         variant="outlined"
         size="small"
         autoFocus={rsvpType === 'guest_rsvp'}
-        value={rsvps[rsvpType].name}
+        value={rsvps[rsvpType].name || ''}
         onChange={(e) => setRSVP(e, {name: e.target.value}, rsvpType)}
         error={!!error}
       />
