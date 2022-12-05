@@ -16,11 +16,15 @@ export const getRSVP = async (email: string): Promise<RSVP | null> => {
   return null;
 };
 
-// TODO: make this just sendRSVP, only POST
-export const sendOrUpdateRSVP = async (
-  rsvps: RSVPs,
-  updating: boolean,
-): Promise<RSVPs | string | null> => {
+export const sendRSVP = async (rsvps: RSVPs): Promise<RSVPs | string | null> => {
+  const {guest_rsvp, plus_one_rsvp} = rsvps;
+  // Make emails lowercase to match DB
+  if (guest_rsvp.email) {
+    rsvps.guest_rsvp.email = rsvps.guest_rsvp.email.toLowerCase();
+  }
+  if (plus_one_rsvp?.email) {
+    rsvps.plus_one_rsvp.email = rsvps.plus_one_rsvp.email.toLowerCase();
+  }
   try {
     const response = await fetch(`${API_HOST}/api/rsvp`, {
       headers: {
@@ -28,7 +32,7 @@ export const sendOrUpdateRSVP = async (
         'Content-Type': 'application/json',
         'API-Key': `${process.env.REACT_APP_API_KEY}`,
       },
-      method: updating ? 'PUT' : 'POST',
+      method: 'POST',
       body: JSON.stringify(rsvps),
     });
     if (response.ok) {

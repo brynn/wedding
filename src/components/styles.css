@@ -200,7 +200,7 @@ a:hover {
 }
 
 .content .MuiButton-root {
-  margin: 0 5px;
+  margin: 0 5px 10px 0;
 }
 
 .rsvp-forms {
@@ -283,5 +283,10 @@ a:hover {
 
   .rsvp .MuiFormHelperText-root {
     font-size: 0.8rem;
+  }
+
+  .rsvp-forms {
+    display: block;
+    column-gap: unset;
   }
 }

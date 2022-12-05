@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button} from '@mui/material';
-import {getGuest, sendOrUpdateRSVP} from '../backend';
+import {getGuest, sendRSVP} from '../backend';
 import {RSVP, Guest, RSVPs} from '../types';
 import {DEFAULT_RSVP} from '../consts';
 import RSVPForm from './RSVPForm';
@@ -56,10 +56,10 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
     });
   };
 
-  const submitRSVP = async (rsvps: RSVPs, updating: boolean) => {
+  const submitRSVP = async (rsvps: RSVPs) => {
     try {
       setLoading(true);
-      const response = await sendOrUpdateRSVP(rsvps, updating);
+      const response = await sendRSVP(rsvps);
       if ((response as RSVPs)?.guest_rsvp) {
         setRSVPs(response as RSVPs);
 
@@ -88,7 +88,7 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
         )}
       </div>
       <Button
-        onClick={() => submitRSVP(rsvps, !!guest.rsvp)}
+        onClick={() => submitRSVP(rsvps)}
         variant="contained"
         size="large"
         disabled={!guest_rsvp.name || (guest.plus_one && !plus_one_rsvp.name)}

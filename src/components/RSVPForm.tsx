@@ -26,6 +26,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
   );
   const [addingPlusOne, setAddingPlusOne] = useState<boolean>(false);
 
+  // TODO: remove plus one button (?)
   if (newPlusOne && !addingPlusOne) {
     return (
       <Card className="rsvp-form">
