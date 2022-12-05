@@ -26,13 +26,15 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
       name: guest?.name,
       email: guest?.email,
     },
-    plus_one_rsvp: {
-      ...DEFAULT_RSVP,
-      ...guest?.plus_one?.rsvp,
-      guest_id: guest?.plus_one?.id,
-      name: guest?.plus_one?.name,
-      email: guest?.plus_one?.email,
-    },
+    plus_one_rsvp: guest.plus_one_allowed
+      ? {
+          ...DEFAULT_RSVP,
+          ...guest?.plus_one?.rsvp,
+          guest_id: guest?.plus_one?.id,
+          name: guest?.plus_one?.name,
+          email: guest?.plus_one?.email,
+        }
+      : null,
   });
 
   if (!guest) {
@@ -41,12 +43,6 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
 
   const setRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
     e.preventDefault();
-    if (guestType === 'guest_rsvp' && updatedRSVP.hasOwnProperty('response')) {
-      setGuest({
-        ...guest,
-        plus_one_allowed: updatedRSVP.response,
-      });
-    }
     setRSVPs({
       ...rsvps,
       [guestType]: {
@@ -83,7 +79,7 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
     <>
       <div className={guest.plus_one_allowed ? 'rsvp-forms' : null}>
         <RSVPForm rsvps={rsvps} rsvpType="guest_rsvp" setRSVP={setRSVP} />
-        {guest.plus_one_allowed && (
+        {guest.plus_one_allowed && guest_rsvp.response && (
           <RSVPForm rsvps={rsvps} rsvpType="plus_one_rsvp" setRSVP={setRSVP} error={error} />
         )}
       </div>
@@ -91,7 +87,7 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
         onClick={() => submitRSVP(rsvps)}
         variant="contained"
         size="large"
-        disabled={!guest_rsvp.name || (guest.plus_one && !plus_one_rsvp.name)}
+        disabled={!guest_rsvp.name || (guest.plus_one && !plus_one_rsvp?.name)}
       >
         {loading ? 'Loading...' : !!guest.rsvp ? 'Update RSVP' : 'Send RSVP'}
       </Button>
