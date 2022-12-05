@@ -3,7 +3,7 @@ import {RSVP, Guest, RSVPs} from '../types';
 
 export const getRSVP = async (email: string): Promise<RSVP | null> => {
   try {
-    const response = await fetch(`${API_HOST}/api/rsvp?email=${email}`, {
+    const response = await fetch(`${API_HOST}/api/rsvp?email=${email.toLowerCase()}`, {
       headers: {'API-Key': `${process.env.REACT_APP_API_KEY}`},
       method: 'GET',
     });
