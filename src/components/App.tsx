@@ -456,6 +456,18 @@ const App: React.FC = () => {
             description="7 Congress Square, Portland"
             body="Fantastic collection and the perfect size for a short visit."
           />
+          <Item
+            title={
+              <a href="https://www.nps.gov/acad/index.htm" rel="noreferrer" target="_blank">
+                Acadia National Park
+              </a>
+            }
+            icon={ICON_MAP.park}
+            description="Bar Harbor"
+            body="If you're making a longer trip out of our wedding weekend, we highly recommend
+            driving up to Acadia National Park in Bar Harbor. The town itself is adorable, and 
+            the park offers incredible hiking and views! It's about a three hour drive from Migis."
+          />
         </Section>
 
         <Section id="rsvp">
