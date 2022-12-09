@@ -55,7 +55,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
       />
       <FormHelperText>{error}</FormHelperText>
 
-      {/* TODO: don't show when updating */}
+      {/* TODO: don't show when updating? */}
       <TextField
         id={`email-${rsvpType}`}
         label="Email"

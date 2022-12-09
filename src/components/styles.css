@@ -89,6 +89,10 @@ h3 {
   padding: 5vh;
 }
 
+.section.prelude p {
+  margin: 0.5rem 0;
+}
+
 .intro {
   background-color: #8389fd;
 }

@@ -4,7 +4,7 @@ interface Props {
   title: string | JSX.Element;
   icon?: JSX.Element;
   description?: string;
-  subtitle?: string;
+  subtitle?: string | JSX.Element;
   body?: string | JSX.Element;
 }
 

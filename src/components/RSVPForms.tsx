@@ -11,9 +11,6 @@ interface Props {
   setUpdatingRSVP: (u: boolean) => void;
 }
 
-// TODO (brynn): refactor a bunch of this
-// Mobile design shouldn't have two columns
-
 const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');

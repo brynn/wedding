@@ -1,26 +1,6 @@
 import React, {useState} from 'react';
 
 import {Button, Divider} from '@mui/material';
-
-// TODO: put these in their own file
-import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
-import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
-import EggAltOutlinedIcon from '@mui/icons-material/EggAltOutlined';
-import KayakingOutlinedIcon from '@mui/icons-material/KayakingOutlined';
-import LunchDiningOutlinedIcon from '@mui/icons-material/LunchDiningOutlined';
-import CelebrationOutlinedIcon from '@mui/icons-material/CelebrationOutlined';
-import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
-import NightlifeOutlinedIcon from '@mui/icons-material/NightlifeOutlined';
-import BrunchDiningOutlinedIcon from '@mui/icons-material/BrunchDiningOutlined';
-import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
-import FlightTakeoffOutlinedIcon from '@mui/icons-material/FlightTakeoffOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
-import RestaurantOutlinedIcon from '@mui/icons-material/RestaurantOutlined';
-import SportsBarOutlinedIcon from '@mui/icons-material/SportsBarOutlined';
-import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
-import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
-import LocalBarOutlinedIcon from '@mui/icons-material/LocalBarOutlined';
-import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import './styles.css';
 
 import {Guest} from '../types';
@@ -30,6 +10,7 @@ import ThanksForm from './ThanksForm';
 import Section from './Section';
 import Item from './Item';
 import Gallery from './Gallery';
+import {ICON_MAP} from '../icons';
 
 const App: React.FC = () => {
   const [guest, setGuest] = useState<Guest>(null);
@@ -37,7 +18,6 @@ const App: React.FC = () => {
 
   // TODO: add loading bar
   // TODO: add link to Migis map
-  // TODO: icon/content map (?)
   // TODO: add link to registry
 
   let rsvpContent = <EmailForm setGuest={setGuest} />;
@@ -93,6 +73,144 @@ const App: React.FC = () => {
         </div>
         <Section id="prelude">
           <h2>Prelude</h2>
+          <Item
+            title={
+              <>
+                Andrew <span className="amp">&amp;</span> Brynn Meet
+              </>
+            }
+            icon={ICON_MAP.satellite}
+            description="august 2018"
+            subtitle="Dreamstate, San Francisco"
+            body={
+              <>
+                <p>
+                  Before Andrew <span className="amp">&amp;</span> Brynn met, they were orbiting
+                  each other like singing satellites.
+                </p>
+                <p>
+                  While at Dreamstate, a trance festival in San Francisco, they found each other at
+                  a mutual friend's afterparty, where they immediately began arguing about a certain
+                  infamous "trance" DJ. music. As most of you may know, these two are quite
+                  competitive and had to eventually agree to disagree as the night wrapped.
+                </p>
+              </>
+            }
+          />
+          <Item
+            title="Things escalate at Esscalation"
+            icon={ICON_MAP.music}
+            description="june 2019"
+            subtitle="Esscalation, NYC"
+            body={
+              <>
+                <p>
+                  Flashing forward to June of 2019, Andrew found himself heading to New York City
+                  for Esscalation, another trance event. Not knowing anyone in NYC, Andrew reached
+                  out to the only person on his friends list who lived there, Brynn Shepherd.
+                </p>
+                <p>
+                  Upon receiving a Facebook message from Andrew, Brynn didn't remember who he was
+                  and had to ask another mutual friend to reminder her that they met after
+                  Dreamstate the previous summer. It's safe to say that after the weekend was over,
+                  she would never forget him again.
+                </p>
+              </>
+            }
+          />
+          <Item
+            title="A Lumi Dreamland"
+            icon={ICON_MAP.beach}
+            description="june 2019"
+            subtitle="Luminosity Beach Festival, Holland"
+            body={
+              <>
+                <p>
+                  It just so happened that Andrew <span className="amp">&amp;</span> Brynn had
+                  independently made plans to attend Luminosity Beach Festival in the Netherlands, a
+                  mere two weeks after their magical weekend in NYC!
+                </p>
+                <p>
+                  This festival turned into five days of bliss for both; you could even say it lit a
+                  fire in their souls.
+                </p>
+              </>
+            }
+          />
+          <Item
+            title="Long Distance"
+            icon={ICON_MAP.phone}
+            description="june 2019 — august 2020"
+            subtitle={
+              <>
+                Austin, Texas <span className="amp">&amp;</span> the Financial District, NYC
+              </>
+            }
+            body={
+              <>
+                <p>
+                  After getting home from Lumi, Andrew <span className="amp">&amp;</span> Brynn
+                  started dating long distance. Every day before they went to bed, they FaceTimed
+                  each other. Brynn was shocked to discover that she looked forward to these calls,
+                  despite never being a fan of phones.
+                </p>
+                <p>
+                  While Brynn enjoyed getting to know Austin, they both knew she was never going to
+                  move to Texas. Feeling inspired by dreams that guided him, Andrew realized he'd
+                  find a way to move to NYC.
+                </p>
+              </>
+            }
+          />
+          <Item
+            title="Covid Times"
+            icon={ICON_MAP.mask}
+            description="march 2020 — september 2021"
+            subtitle="Brooklyn, NYC"
+            body={
+              <>
+                <p>
+                  While generally NOT the best of times, Covid had a silver lining for Andrew{' '}
+                  <span className="amp">&amp;</span> Brynn. Andrew's job went fully remote, and in
+                  August of 2020 he made the big move to the big city!
+                </p>
+                <p>
+                  After renting an apartment with a friend in Long Island City for nearly a year,
+                  Andrew moved in with Brynn in July of 2021, after she upgraded to a one-bedroom
+                  apartment in her building in Brooklyn. Despite the pandemic's many hardships, they
+                  loved dating in the same city. Brynn also fell madly in love with Andrew's cat,
+                  Leia, who they flew from Texas to NYC in January of 2021.
+                </p>
+              </>
+            }
+          />
+          <Item
+            title={
+              <>
+                Andrew <span className="amp">&amp;</span> Brynn Get Engaged!
+              </>
+            }
+            icon={ICON_MAP.sun}
+            description="september sixth, 2021"
+            subtitle="Avignon, France"
+            body={
+              <>
+                <p>
+                  Andrew <span className="amp">&amp;</span> Brynn had made plans to fly to Europe in
+                  September 2021, hilariously enough to attend a festival hosted by that certain
+                  aforementioned "trance" DJ above. While the festival was cancelled last-minute due
+                  to Omicron, they decided to go anyway, spending a weekend in Utrecht and then
+                  flying to France for a three-day biking tour of Provence.
+                </p>
+                <p>
+                  On their first day in France, they climbed the Pope's Castle during golden hour in
+                  Avignon. It was there that Andrew got down on one knee and asked Brynn that most
+                  important question. She said yes, and Andrew had never seen the sun shine
+                  brighter.
+                </p>
+              </>
+            }
+          />
         </Section>
         <Section id="schedule">
           <h2>
@@ -101,7 +219,7 @@ const App: React.FC = () => {
 
           <Item
             title="Lodge Guest Check-In"
-            icon={<KeyOutlinedIcon />}
+            icon={ICON_MAP.key}
             description="friday, june second, 4pm"
             subtitle="Migis Lodge"
             body={
@@ -120,7 +238,7 @@ const App: React.FC = () => {
                 Welcome Party <span className="amp">&amp;</span> Bonfire
               </>
             }
-            icon={<LocalFireDepartmentOutlinedIcon />}
+            icon={ICON_MAP.fire}
             description="friday, june second, 6–11pm"
             subtitle="Cookout Point"
             body={
@@ -136,14 +254,14 @@ const App: React.FC = () => {
 
           <Item
             title="Breakfast"
-            icon={<EggAltOutlinedIcon />}
+            icon={ICON_MAP.egg}
             description="saturday, june third, 8–10am"
             subtitle="Cookout Point"
             body="For guests staying at Migis, breakfast will be provided at the cookout point."
           />
           <Item
             title="Enjoy the Lodge"
-            icon={<KayakingOutlinedIcon />}
+            icon={ICON_MAP.kayak}
             description="saturday, june third, 11am onwards"
             subtitle="Main Lodge"
             body={
@@ -155,7 +273,7 @@ const App: React.FC = () => {
           />
           <Item
             title="Lunch"
-            icon={<LunchDiningOutlinedIcon />}
+            icon={ICON_MAP.lunch}
             description="saturday, june third, 12–1pm"
             subtitle="Main Lodge"
             body={
@@ -171,7 +289,7 @@ const App: React.FC = () => {
                 Ceremony <span className="amp">&amp;</span> Cocktail Hour
               </>
             }
-            icon={<CelebrationOutlinedIcon />}
+            icon={ICON_MAP.confetti}
             description="saturday, june third, 5–6:30pm"
             subtitle="The Lawn"
             body={
@@ -184,7 +302,7 @@ const App: React.FC = () => {
           />
           <Item
             title="Reception"
-            icon={<CakeOutlinedIcon />}
+            icon={ICON_MAP.cake}
             description="saturday, june third, 6:30pm–10pm"
             subtitle="Main Lodge"
             body={
@@ -195,7 +313,7 @@ const App: React.FC = () => {
           />
           <Item
             title="After Party"
-            icon={<NightlifeOutlinedIcon />}
+            icon={ICON_MAP.afters}
             description="saturday, june third, 10pm onwards"
             subtitle="Boulders"
             body="Keep the party going!"
@@ -203,7 +321,7 @@ const App: React.FC = () => {
           <Divider />
           <Item
             title="Farewell Brunch"
-            icon={<BrunchDiningOutlinedIcon />}
+            icon={ICON_MAP.brunch}
             description="sunday, june fourth, 9–11am"
             subtitle="Cookout Point"
             body="For guests staying at Migis, brunch will be provided at the cookout point."
@@ -219,7 +337,7 @@ const App: React.FC = () => {
                 Migis Lodge at Sebago Lake
               </a>
             }
-            icon={<HotelOutlinedIcon />}
+            icon={ICON_MAP.hotel}
             description="30 Migis Lodge Road, South Casco"
             subtitle="(207) 655-4524"
             body="We will work with Migis to assign the cottages and lodge rooms, making sure to
@@ -236,7 +354,7 @@ const App: React.FC = () => {
                 Microtel Inn <span className="amp">&amp;</span> Suites by Wyndham
               </a>
             }
-            icon={<HotelOutlinedIcon />}
+            icon={ICON_MAP.hotel}
             description="965 Roosevelt Trail, Windham"
             subtitle="(207) 893-8870"
             body="For those that would prefer to stay offsite, the Microtel is a 10 minute drive
@@ -248,19 +366,19 @@ const App: React.FC = () => {
 
           <Item
             title="PWM"
-            icon={<FlightTakeoffOutlinedIcon />}
+            icon={ICON_MAP.flight}
             description="Portland International Jetport"
             body="Migis Lodge is about 45 minutes driving from Portland International Jetport."
           />
           <Item
             title="BOS"
-            icon={<FlightTakeoffOutlinedIcon />}
+            icon={ICON_MAP.flight}
             description="Boston Logan International Airport"
             body="Migis Lodge is about 2.5 hours driving from Boston Logan International Airport."
           />
           <Item
             title="Driving From NYC"
-            icon={<DirectionsCarFilledOutlinedIcon />}
+            icon={ICON_MAP.car}
             body="Depending on traffic, it takes between 5–7 hours to drive to Migis from the New
                   York City area."
           />
@@ -274,7 +392,7 @@ const App: React.FC = () => {
                 Sebago Brewing Company
               </a>
             }
-            icon={<SportsBarOutlinedIcon />}
+            icon={ICON_MAP.beer}
             description="616 Main Street, Gorham"
             body="Great local beers; there are a few locations, but this one is closest to the venue. Co-founded and owned by the bride's stepdad's cousin!"
           />
@@ -284,7 +402,7 @@ const App: React.FC = () => {
                 MK Kitchen
               </a>
             }
-            icon={<RestaurantOutlinedIcon />}
+            icon={ICON_MAP.restaurant}
             description="2 School Street, Gorham"
             body="Delicious food in nearby Gorham, which is a bit closer to Migis than downtown Portland."
           />
@@ -294,7 +412,7 @@ const App: React.FC = () => {
                 Tandem Coffee <span className="amp">&amp;</span> Bakery
               </a>
             }
-            icon={<BakeryDiningOutlinedIcon />}
+            icon={ICON_MAP.bakery}
             description="742 Congress Street, Portland"
             body="Excellent coffee and even better breakfast sandwiches!"
           />
@@ -304,7 +422,7 @@ const App: React.FC = () => {
                 The Holy Donut
               </a>
             }
-            icon={<CookieOutlinedIcon />}
+            icon={ICON_MAP.cookie}
             description="7 Exchange Street, Portland"
             body="Delicious craft donuts with all-natural ingredients."
           />
@@ -314,7 +432,7 @@ const App: React.FC = () => {
                 Duckfat
               </a>
             }
-            icon={<RestaurantOutlinedIcon />}
+            icon={ICON_MAP.restaurant}
             description="43 Middle Street, Portland"
             body="The fries alone are worth the (inevitably) long wait!"
           />
@@ -324,7 +442,7 @@ const App: React.FC = () => {
                 Blyth <span className="amp">&amp;</span> Burrows
               </a>
             }
-            icon={<LocalBarOutlinedIcon />}
+            icon={ICON_MAP.cocktail}
             description="26 Exchange Street, Portland"
             body="Top-tier cocktails and great food too."
           />
@@ -334,7 +452,7 @@ const App: React.FC = () => {
                 Portland Museum of Art
               </a>
             }
-            icon={<ColorLensOutlinedIcon />}
+            icon={ICON_MAP.art}
             description="7 Congress Square, Portland"
             body="Fantastic collection and the perfect size for a short visit."
           />

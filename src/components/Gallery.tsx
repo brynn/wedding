@@ -19,7 +19,6 @@ const Gallery: React.FC = () => {
         showPlayButton={false}
         autoPlay={true}
         showNav={false}
-        lazyLoad={true}
       />
     </div>
   );

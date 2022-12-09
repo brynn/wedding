@@ -1,0 +1,53 @@
+import {createElement} from 'react';
+
+import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
+import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
+import EggAltOutlinedIcon from '@mui/icons-material/EggAltOutlined';
+import KayakingOutlinedIcon from '@mui/icons-material/KayakingOutlined';
+import LunchDiningOutlinedIcon from '@mui/icons-material/LunchDiningOutlined';
+import CelebrationOutlinedIcon from '@mui/icons-material/CelebrationOutlined';
+import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
+import NightlifeOutlinedIcon from '@mui/icons-material/NightlifeOutlined';
+import BrunchDiningOutlinedIcon from '@mui/icons-material/BrunchDiningOutlined';
+import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
+import FlightTakeoffOutlinedIcon from '@mui/icons-material/FlightTakeoffOutlined';
+import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
+import RestaurantOutlinedIcon from '@mui/icons-material/RestaurantOutlined';
+import SportsBarOutlinedIcon from '@mui/icons-material/SportsBarOutlined';
+import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
+import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
+import LocalBarOutlinedIcon from '@mui/icons-material/LocalBarOutlined';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
+import MasksIcon from '@mui/icons-material/Masks';
+import FlareIcon from '@mui/icons-material/Flare';
+
+export const ICON_MAP: {[iconName: string]: JSX.Element} = {
+  key: createElement(KeyOutlinedIcon) as JSX.Element,
+  fire: createElement(LocalFireDepartmentOutlinedIcon) as JSX.Element,
+  egg: createElement(EggAltOutlinedIcon) as JSX.Element,
+  kayak: createElement(KayakingOutlinedIcon) as JSX.Element,
+  lunch: createElement(LunchDiningOutlinedIcon) as JSX.Element,
+  confetti: createElement(CelebrationOutlinedIcon) as JSX.Element,
+  cake: createElement(CakeOutlinedIcon) as JSX.Element,
+  afters: createElement(NightlifeOutlinedIcon) as JSX.Element,
+  brunch: createElement(BrunchDiningOutlinedIcon) as JSX.Element,
+  hotel: createElement(HotelOutlinedIcon) as JSX.Element,
+  flight: createElement(FlightTakeoffOutlinedIcon) as JSX.Element,
+  car: createElement(DirectionsCarFilledOutlinedIcon) as JSX.Element,
+  restaurant: createElement(RestaurantOutlinedIcon) as JSX.Element,
+  beer: createElement(SportsBarOutlinedIcon) as JSX.Element,
+  bakery: createElement(BakeryDiningOutlinedIcon) as JSX.Element,
+  cookie: createElement(CookieOutlinedIcon) as JSX.Element,
+  cocktail: createElement(LocalBarOutlinedIcon) as JSX.Element,
+  art: createElement(ColorLensOutlinedIcon) as JSX.Element,
+  satellite: createElement(SatelliteAltIcon) as JSX.Element,
+  music: createElement(MusicNoteIcon) as JSX.Element,
+  beach: createElement(BeachAccessIcon) as JSX.Element,
+  phone: createElement(PhonelinkRingIcon) as JSX.Element,
+  mask: createElement(MasksIcon) as JSX.Element,
+  sun: createElement(FlareIcon) as JSX.Element,
+};
