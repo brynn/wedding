@@ -101,7 +101,7 @@ const App: React.FC = () => {
             title="Things escalate at Esscalation"
             icon={ICON_MAP.music}
             description="june 2019"
-            subtitle="Esscalation, NYC"
+            subtitle="The Melrose Ballroom, NYC"
             body={
               <>
                 <p>
