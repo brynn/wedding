@@ -170,16 +170,16 @@ const App: React.FC = () => {
             body={
               <>
                 <p>
-                  While generally NOT the best of times, Covid had a silver lining for Andrew{' '}
+                  While generally NOT the best of times, the pandemic had a silver lining for Andrew{' '}
                   <span className="amp">&amp;</span> Brynn. Andrew's job went fully remote, and in
                   August of 2020 he made the big move to the big city!
                 </p>
                 <p>
                   After renting an apartment with a friend in Long Island City for nearly a year,
-                  Andrew moved in with Brynn in July of 2021, after she upgraded to a one-bedroom
-                  apartment in her building in Brooklyn. Despite the pandemic's many hardships, they
-                  loved dating in the same city. Brynn also fell madly in love with Andrew's cat,
-                  Leia, who they flew from Texas to NYC in January of 2021.
+                  Andrew moved in with Brynn in July of 2021, after she upgraded to a (much needed)
+                  one-bedroom apartment in her building in Brooklyn. Despite the pandemic's many
+                  hardships, they loved dating in the same city. Brynn also fell madly in love with
+                  Andrew's cat, Leia, who they flew from Texas to NYC in January of 2021.
                 </p>
               </>
             }
