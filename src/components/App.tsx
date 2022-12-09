@@ -91,8 +91,8 @@ const App: React.FC = () => {
                 <p>
                   While at Dreamstate, a trance festival in San Francisco, they found each other at
                   a mutual friend's afterparty, where they immediately began arguing about a certain
-                  infamous "trance" DJ. music. As most of you may know, these two are quite
-                  competitive and had to eventually agree to disagree as the night wrapped.
+                  infamous "trance" DJ. As most of you may know, these two are quite competitive and
+                  had to eventually agree to disagree as the night wrapped.
                 </p>
               </>
             }
