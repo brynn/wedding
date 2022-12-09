@@ -466,7 +466,7 @@ const App: React.FC = () => {
                 Audubon Puffin <span className="amp">&amp;</span> Scenic Cruise
               </a>
             }
-            icon={ICON_MAP.park}
+            icon={ICON_MAP.puffin}
             description="42 Commercial Street, Boothbay Harbor"
             body="Need we say more?! Brynn did this cruise once and loved it even though it was super cloudy
             and she could barely see the puffins. About an hour and a half drive from Migis; if you are interested

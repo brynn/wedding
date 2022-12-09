@@ -25,6 +25,7 @@ import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
 import MasksIcon from '@mui/icons-material/Masks';
 import FlareIcon from '@mui/icons-material/Flare';
 import ParkIcon from '@mui/icons-material/Park';
+import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
 
 export const ICON_MAP: {[iconName: string]: JSX.Element} = {
   key: createElement(KeyOutlinedIcon) as JSX.Element,
@@ -52,4 +53,5 @@ export const ICON_MAP: {[iconName: string]: JSX.Element} = {
   mask: createElement(MasksIcon) as JSX.Element,
   sun: createElement(FlareIcon) as JSX.Element,
   park: createElement(ParkIcon) as JSX.Element,
+  puffin: createElement(DirectionsBoatIcon) as JSX.Element,
 };
