@@ -206,7 +206,7 @@ const App: React.FC = () => {
                   On their first day in France, they climbed the Pope's Castle during golden hour in
                   Avignon. It was there that Andrew got down on one knee and asked Brynn that most
                   important question. She said yes, and Andrew had never seen the sun shine
-                  brighter.
+                  brighter!
                 </p>
               </>
             }
