@@ -458,6 +458,22 @@ const App: React.FC = () => {
           />
           <Item
             title={
+              <a
+                href="https://www.boothbayboattrips.com/cruises/puffin-scenic-cruise/"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Audubon Puffin <span className="amp">&amp;</span> Scenic Cruise
+              </a>
+            }
+            icon={ICON_MAP.park}
+            description="42 Commercial Street, Boothbay Harbor"
+            body="Need we say more?! Brynn did this cruise once and loved it even though it was super cloudy
+            and she could barely see the puffins. About an hour and a half drive from Migis; if you are interested
+            we recommending booking the cruise in advance on their website."
+          />
+          <Item
+            title={
               <a href="https://www.nps.gov/acad/index.htm" rel="noreferrer" target="_blank">
                 Acadia National Park
               </a>
