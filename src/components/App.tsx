@@ -197,7 +197,7 @@ const App: React.FC = () => {
               <>
                 <p>
                   Andrew <span className="amp">&amp;</span> Brynn had made plans to fly to Europe in
-                  September 2021, hilariously enough to attend a festival hosted by that certain
+                  September of 2021, hilariously enough to attend a festival hosted by that certain
                   aforementioned "trance" DJ above. While the festival was cancelled last-minute due
                   to Omicron, they decided to go anyway, spending a weekend in Utrecht and then
                   flying to France for a three-day biking tour of Provence.
