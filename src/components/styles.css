@@ -216,7 +216,13 @@ a:hover {
   flex: 1;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1660px) {
+  .photo img {
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 1230px) {
   .App {
     flex-direction: column;
   }
@@ -230,9 +236,9 @@ a:hover {
     height: 50vh;
   }
 
-  /* .photo img {
-    top: -350px;
-  } */
+  .photo img {
+    top: -200px;
+  }
 
   .content {
     overflow: initial;
@@ -251,8 +257,8 @@ a:hover {
 
 @media only screen and (max-width: 768px) {
   .photo {
-    min-height: 40vh;
-    height: 40vh;
+    min-height: 60vh;
+    height: 60vh;
   }
 
   .section {
@@ -262,17 +268,23 @@ a:hover {
 
   .intro,
   .intro-content {
-    min-height: 45vh;
-    height: 45vh;
+    min-height: 35vh;
+    height: 35vh;
     padding-bottom: 12vh;
+    justify-content: flex-start;
   }
 
   .photo img {
-    top: -100px;
+    top: -40px;
   }
 
   .logo {
-    width: 60vw;
+    width: 50vw;
+    margin: 3vh 0;
+  }
+
+  .date {
+    margin-bottom: 3vh;
   }
 
   .location {
