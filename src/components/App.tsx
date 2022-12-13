@@ -111,9 +111,9 @@ const App: React.FC = () => {
                 </p>
                 <p>
                   Upon receiving a Facebook message from Andrew, Brynn didn't remember who he was
-                  and had to ask another mutual friend to reminder her that they met after
-                  Dreamstate the previous summer. It's safe to say that after the weekend was over,
-                  she would never forget him again.
+                  and had to ask another mutual friend to remind her that they met after Dreamstate
+                  the previous summer. It's safe to say that after the weekend was over, she would
+                  never forget him again.
                 </p>
               </>
             }
@@ -179,7 +179,7 @@ const App: React.FC = () => {
                   Andrew moved in with Brynn in July of 2021, after she upgraded to a (much needed)
                   one-bedroom apartment in her building in Brooklyn. Despite the pandemic's many
                   hardships, they loved dating in the same city. Brynn also fell madly in love with
-                  Andrew's cat, Leia, who they flew from Texas to NYC in January of 2021.
+                  Andrew's cat, Leia, whom they flew from Texas to NYC in January of 2021.
                 </p>
               </>
             }
@@ -199,8 +199,8 @@ const App: React.FC = () => {
                   Andrew <span className="amp">&amp;</span> Brynn had made plans to fly to Europe in
                   September of 2021, hilariously enough to attend a festival hosted by that certain
                   aforementioned "trance" DJ above. While the festival was cancelled last-minute due
-                  to Omicron, they decided to go anyway, spending a weekend in Utrecht and then
-                  flying to France for a three-day biking tour of Provence.
+                  to Covid's Delta era, they decided to go anyway, spending a weekend in Utrecht and
+                  then flying to France for a three-day biking tour of Provence.
                 </p>
                 <p>
                   On their first day in France, they climbed the Pope's Castle during golden hour in
@@ -241,13 +241,7 @@ const App: React.FC = () => {
             icon={ICON_MAP.fire}
             description="friday, june second, 6–11pm"
             subtitle="Cookout Point"
-            body={
-              <>
-                For guests staying at Migis, dinner will be provided at the cookout point. Dress
-                code is sport coat or button down for men <span className="amp">&amp;</span>{' '}
-                sundresses for women.
-              </>
-            }
+            body={<>Dinner will be provided at the cookout point. Dress code is semi-formal.</>}
           />
 
           <Divider />
@@ -278,7 +272,7 @@ const App: React.FC = () => {
             subtitle="Main Lodge"
             body={
               <>
-                For guests staying at Migis, boxed lunches with assorted sandwiches, chips, cookies,{' '}
+                Boxed lunches with assorted sandwiches, chips, cookies,{' '}
                 <span className="amp">&amp;</span> fruit will be available in the main lodge.
               </>
             }
@@ -294,9 +288,8 @@ const App: React.FC = () => {
             subtitle="The Lawn"
             body={
               <>
-                Dress code is suit and tie for men <span className="amp">&amp;</span> cocktail
-                dresses for women. Our ceremony will take place on grass, so plan your shoes
-                accordingly!
+                Dress code is formal attire. Our ceremony will take place on grass, so plan your
+                shoes accordingly!
               </>
             }
           />
@@ -324,7 +317,7 @@ const App: React.FC = () => {
             icon={ICON_MAP.brunch}
             description="sunday, june fourth, 9–11am"
             subtitle="Cookout Point"
-            body="For guests staying at Migis, brunch will be provided at the cookout point."
+            body="Brunch will be provided at the cookout point."
           />
         </Section>
         <Section id="travel">
@@ -357,7 +350,7 @@ const App: React.FC = () => {
             icon={ICON_MAP.hotel}
             description="965 Roosevelt Trail, Windham"
             subtitle="(207) 893-8870"
-            body="For those that would prefer to stay offsite, the Microtel is a 10 minute drive
+            body="For those that prefer to stay offsite, the Microtel is a 10 minute drive
               from Migis. The lodge and its amenities will still be available to you throughout
               the weekend. There will not be transportation provided from the Microtel."
           />
