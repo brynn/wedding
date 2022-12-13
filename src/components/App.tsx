@@ -333,9 +333,9 @@ const App: React.FC = () => {
             icon={ICON_MAP.hotel}
             description="30 Migis Lodge Road, South Casco"
             subtitle="(207) 655-4524"
-            body="We will work with Migis to assign the cottages and lodge rooms, making sure to
+            body="We will work with the venue to assign the cottages and lodge rooms, making sure to
               place you close to your friends and favorite people, and you will be informed of
-              your cottage upon your check-in."
+              your cottage upon your check-in. You can book lodging at Migis after RSVPing."
           />
           <Item
             title={
