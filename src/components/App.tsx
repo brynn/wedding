@@ -502,7 +502,9 @@ const App: React.FC = () => {
             RSVP <span className="amp">&amp;</span> Registry
           </h2>
           {rsvpContent}
-          <p>Registry coming soon!</p>
+          <div className="registry">
+            <p>Registry coming soon!</p>
+          </div>
         </Section>
       </div>
     </div>

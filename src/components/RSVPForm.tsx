@@ -62,7 +62,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
 
       <TextField
         id={`email-${rsvpType}`}
-        label={rsvpType === 'guest_rsvp' ? 'Name' : `+1's Email`}
+        label={rsvpType === 'guest_rsvp' ? 'Email' : `+1's Email`}
         variant="outlined"
         size="small"
         value={rsvps[rsvpType].email || ''}

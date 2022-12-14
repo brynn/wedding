@@ -73,7 +73,7 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
 
   const {guest_rsvp, plus_one_rsvp} = rsvps;
   return (
-    <>
+    <div className="rsvp-forms-container">
       <div className={guest.plus_one_allowed ? 'rsvp-forms' : null}>
         <RSVPForm rsvps={rsvps} rsvpType="guest_rsvp" setRSVP={setRSVP} />
         {guest.plus_one_allowed && guest_rsvp.response && (
@@ -84,11 +84,12 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
         onClick={() => submitRSVP(rsvps)}
         variant="contained"
         size="large"
+        fullWidth
         disabled={!guest_rsvp.name || (guest.plus_one && !plus_one_rsvp?.name)}
       >
         {loading ? 'Loading...' : !!guest.rsvp ? 'Update RSVP' : 'Send RSVP'}
       </Button>
-    </>
+    </div>
   );
 };
 

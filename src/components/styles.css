@@ -154,11 +154,15 @@ a:hover {
   background-color: #f980c6;
 }
 
-.thanks {
+.MuiPaper-root.thanks-form {
+  padding: 5vh;
+}
+
+.thanks-form p {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #ffffff;
-  margin: 1vh 0 3vh 0;
+  margin-bottom: 5vh;
 }
 
 .item {
@@ -210,7 +214,7 @@ a:hover {
 }
 
 .content .MuiButton-root {
-  margin: 0 5px 10px 0;
+  margin: 0 10px;
 }
 
 .rsvp-forms {
@@ -226,10 +230,8 @@ a:hover {
   margin: 20px 5px 10px 0;
 }
 
-@media only screen and (max-width: 1660px) {
-  .photo img {
-    top: 0;
-  }
+.rsvp-forms-container {
+  margin-bottom: 10vh;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -287,7 +289,7 @@ a:hover {
 
   .photo img {
     position: relative;
-    top: -20vh;
+    top: -15vh;
   }
 
   .logo {
@@ -310,5 +312,9 @@ a:hover {
   .rsvp-forms {
     display: block;
     column-gap: unset;
+  }
+
+  .content .rsvp-form .MuiButton-root {
+    margin: 0;
   }
 }
