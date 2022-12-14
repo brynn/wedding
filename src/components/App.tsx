@@ -290,8 +290,8 @@ const App: React.FC = () => {
             subtitle="The Lawn"
             body={
               <>
-                Dress code is formal attire. Our ceremony will take place on grass, so plan your
-                shoes accordingly!
+                Dress code is formal attire, black tie optional. Our ceremony will take place on
+                grass, so plan your shoes accordingly!
               </>
             }
           />
