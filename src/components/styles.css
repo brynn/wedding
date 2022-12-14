@@ -262,7 +262,7 @@ a:hover {
   }
 
   .date {
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
   }
 }
 
@@ -297,7 +297,6 @@ a:hover {
   .location {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 12px;
   }
 
   .date {

@@ -52,7 +52,9 @@ const App: React.FC = () => {
               <a href="#things">Things to Do</a>
             </li>
             <li>
-              <a href="#rsvp">RSVP</a>
+              <a href="#rsvp">
+                RSVP <span className="amp">&amp;</span> Registry
+              </a>
             </li>
           </ul>
           <div className="intro-content">
@@ -496,8 +498,11 @@ const App: React.FC = () => {
         </Section>
 
         <Section id="rsvp">
-          <h2>RSVP</h2>
+          <h2>
+            RSVP <span className="amp">&amp;</span> Registry
+          </h2>
           {rsvpContent}
+          <p>Registry coming soon!</p>
         </Section>
       </div>
     </div>
