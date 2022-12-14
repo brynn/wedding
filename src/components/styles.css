@@ -213,10 +213,6 @@ a:hover {
   margin-bottom: 3px;
 }
 
-.content .MuiButton-root {
-  margin: 0 10px;
-}
-
 .rsvp-forms {
   display: flex;
   column-gap: 20px;
@@ -228,6 +224,10 @@ a:hover {
 
 .content .rsvp-form .MuiButton-root {
   margin: 20px 5px 10px 0;
+}
+
+.content .thanks-form .MuiButton-root {
+  margin: 0 10px;
 }
 
 .rsvp-forms-container {

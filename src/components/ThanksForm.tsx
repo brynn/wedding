@@ -9,7 +9,7 @@ interface Props {
 const ThanksForm: React.FC<Props> = ({response, setUpdatingRSVP}: Props) => {
   return (
     <Card className="thanks-form">
-      <p className="thanks">
+      <p>
         {response
           ? `thanks for RSVPing, we can't wait to celebrate with you!`
           : `thanks for RSVPing, you'll be missed!`}
