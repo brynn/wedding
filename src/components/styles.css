@@ -230,8 +230,8 @@ a:hover {
   margin: 0 10px;
 }
 
-.rsvp-forms-container {
-  margin-bottom: 10vh;
+.registry {
+  margin-top: 10vh;
 }
 
 @media only screen and (max-width: 1199px) {
