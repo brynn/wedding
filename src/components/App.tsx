@@ -363,8 +363,10 @@ const App: React.FC = () => {
                 There will not be transportation provided from the Microtel. We are in the process
                 of reserving a wedding block at the Microtel, so if you already know you'd prefer to
                 stay there, please email{' '}
-                <a href="mailto:andrewandbrynn@gmail.com">andrewandbrynn@gmail.com</a> and we'll
-                make sure to hold a spot for you in the hotel block.
+                <a target="_blank" rel="noopener noreferrer" href="mailto:andrewandbrynn@gmail.com">
+                  andrewandbrynn@gmail.com
+                </a>{' '}
+                and we'll make sure to hold a spot for you in the hotel block.
               </>
             }
           />
