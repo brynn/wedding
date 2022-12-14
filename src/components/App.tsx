@@ -333,9 +333,15 @@ const App: React.FC = () => {
             icon={ICON_MAP.hotel}
             description="30 Migis Lodge Road, South Casco"
             subtitle="(207) 655-4524"
-            body="We will work with the venue to assign the cottages and lodge rooms, making sure to
-              place you close to your friends and favorite people, and you will be informed of
-              your cottage upon your check-in. You can book lodging at Migis after RSVPing."
+            body={
+              <>
+                We will work with the venue to assign the cottages and lodge rooms, making sure to
+                place you close to your friends and favorite people, and you will be informed of
+                your cottage upon your check-in. The cottages are first come, first served, and you
+                can reserve your place after <a href="#rsvp">RSVPing</a>. Rates are $163.83 per
+                adult per night, or $175.26 per adult to stay Saturday night only.
+              </>
+            }
           />
           <Item
             title={
@@ -350,9 +356,17 @@ const App: React.FC = () => {
             icon={ICON_MAP.hotel}
             description="965 Roosevelt Trail, Windham"
             subtitle="(207) 893-8870"
-            body="For those that prefer to stay offsite, the Microtel is a 10 minute drive
-              from Migis. The lodge and its amenities will still be available to you throughout
-              the weekend. There will not be transportation provided from the Microtel."
+            body={
+              <>
+                For those that prefer to stay offsite, the Microtel is a 10 minute drive from Migis.
+                The lodge and its amenities will still be available to you throughout the weekend.
+                There will not be transportation provided from the Microtel. We are in the process
+                of reserving a wedding block at the Microtel, so if you already know you'd prefer to
+                stay there, please email{' '}
+                <a href="mailto:andrewandbrynn@gmail.com">andrewandbrynn@gmail.com</a> and we'll
+                make sure to hold a spot for you in the hotel block.
+              </>
+            }
           />
 
           <Divider />

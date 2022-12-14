@@ -24,7 +24,7 @@ export const sendRSVP = async (rsvps: RSVPs): Promise<RSVPs | string | null> => 
       return (await response.json()) as RSVPs;
     } else {
       // TODO: figure out how to decode the error response
-      return Promise.resolve('Name is required');
+      return Promise.resolve('name is required');
     }
   } catch (err) {
     console.error(err);

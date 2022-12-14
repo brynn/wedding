@@ -41,6 +41,8 @@ p {
 a {
   text-decoration: none;
   color: #ffffff;
+  font-weight: 700;
+  opacity: 0.8;
 }
 
 h2,
@@ -71,11 +73,6 @@ h3 {
   overflow: hidden;
   position: relative;
 }
-
-/* .photo img {
-  height: 100vh;
-  object-fit: cover;
-} */
 
 .content {
   flex: 1;
@@ -133,10 +130,6 @@ h3 {
   height: 5vh;
 }
 
-a {
-  opacity: 0.8;
-}
-
 a:hover {
   opacity: 1;
 }
@@ -184,6 +177,14 @@ a:hover {
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1.3rem;
+}
+
+.item p a {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.6);
+}
+
+.item p a:hover {
+  border-bottom: none;
 }
 
 .item .MuiSvgIcon-root {
@@ -296,6 +297,7 @@ a:hover {
   .location {
     font-size: 18px;
     line-height: 24px;
+    margin-bottom: 12px;
   }
 
   .date {
