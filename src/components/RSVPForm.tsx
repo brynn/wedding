@@ -11,11 +11,12 @@ import {
   Card,
 } from '@mui/material';
 import {MealChoice, RSVP, RSVPs} from '../types';
+import {DEFAULT_RSVP} from '../consts';
 
 interface Props {
   rsvps: RSVPs;
   rsvpType: keyof RSVPs;
-  setRSVP: (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, rsvpType: keyof RSVPs) => void;
+  setRSVP: (updatedRSVP: Partial<RSVP>, rsvpType: keyof RSVPs) => void;
   error?: string;
 }
 
@@ -25,12 +26,17 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
   );
   const [addingPlusOne, setAddingPlusOne] = useState<boolean>(false);
 
+  const handleAddPlusOne = () => {
+    setAddingPlusOne(true);
+    setRSVP({...DEFAULT_RSVP}, 'plus_one_rsvp');
+  };
+
   // TODO: remove plus one button (?)
   if (newPlusOne && !addingPlusOne) {
     return (
       <Card className="rsvp-form">
         <Button
-          onClick={() => setAddingPlusOne(true)}
+          onClick={handleAddPlusOne}
           variant="contained"
           size="large"
           disabled={!rsvps.guest_rsvp.response}
@@ -49,7 +55,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
         size="small"
         autoFocus={rsvpType === 'guest_rsvp'}
         value={rsvps[rsvpType].name || ''}
-        onChange={(e) => setRSVP(e, {name: e.target.value}, rsvpType)}
+        onChange={(e) => setRSVP({name: e.target.value}, rsvpType)}
         error={!!error}
         helperText={error}
       />
@@ -60,7 +66,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
         variant="outlined"
         size="small"
         value={rsvps[rsvpType].email || ''}
-        onChange={(e) => setRSVP(e, {email: e.target.value}, rsvpType)}
+        onChange={(e) => setRSVP({email: e.target.value}, rsvpType)}
       />
       {/* We assume that new plus ones can attend */}
       {!addingPlusOne && (
@@ -73,7 +79,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
               aria-labelledby={`response-group-${rsvpType}`}
               name="response"
               value={rsvps[rsvpType].response ? 'yes' : 'no'}
-              onChange={(e, value) => setRSVP(e, {response: value === 'yes'}, rsvpType)}
+              onChange={(e, value) => setRSVP({response: value === 'yes'}, rsvpType)}
             >
               <FormControlLabel value="yes" control={<Radio size="small" />} label="Can't wait!" />
               <FormControlLabel value="no" control={<Radio size="small" />} label="Sadly, no" />
@@ -92,7 +98,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
               aria-labelledby={`meal-choice-group-${rsvpType}`}
               name="meal-choice"
               value={rsvps[rsvpType].meal_choice}
-              onChange={(e, value) => setRSVP(e, {meal_choice: value as MealChoice}, rsvpType)}
+              onChange={(e, value) => setRSVP({meal_choice: value as MealChoice}, rsvpType)}
             >
               <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
               <FormControlLabel value="meat" control={<Radio size="small" />} label="Meat" />
@@ -113,7 +119,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
               aria-labelledby={`rehearsal-dinner-group-${rsvpType}`}
               name="rehearsal-dinner"
               value={rsvps[rsvpType].rehearsal_dinner ? 'yes' : 'no'}
-              onChange={(e, value) => setRSVP(e, {rehearsal_dinner: value === 'yes'}, rsvpType)}
+              onChange={(e, value) => setRSVP({rehearsal_dinner: value === 'yes'}, rsvpType)}
             >
               <FormControlLabel value="yes" control={<Radio size="small" />} label="Yes" />
               <FormControlLabel value="no" control={<Radio size="small" />} label="No" />

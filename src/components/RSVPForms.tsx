@@ -18,28 +18,28 @@ const RSVPForms: React.FC<Props> = ({guest, setGuest, setUpdatingRSVP}: Props) =
   const [rsvps, setRSVPs] = useState<RSVPs>({
     guest_rsvp: {
       ...DEFAULT_RSVP,
-      ...guest?.rsvp,
-      guest_id: guest?.id,
-      name: guest?.name,
-      email: guest?.email,
+      ...guest.rsvp,
+      guest_id: guest.id,
+      name: guest.name,
+      email: guest.email,
     },
-    plus_one_rsvp: guest.plus_one_allowed
-      ? {
-          ...DEFAULT_RSVP,
-          ...guest?.plus_one?.rsvp,
-          guest_id: guest?.plus_one?.id,
-          name: guest?.plus_one?.name,
-          email: guest?.plus_one?.email,
-        }
-      : null,
+    plus_one_rsvp:
+      guest.plus_one_allowed && guest.plus_one
+        ? {
+            ...DEFAULT_RSVP,
+            ...guest.plus_one.rsvp,
+            guest_id: guest.plus_one.id,
+            name: guest.plus_one.name,
+            email: guest.plus_one.email,
+          }
+        : null,
   });
 
   if (!guest) {
     return;
   }
 
-  const setRSVP = (e: React.ChangeEvent, updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
-    e.preventDefault();
+  const setRSVP = (updatedRSVP: Partial<RSVP>, guestType: keyof RSVPs) => {
     setRSVPs({
       ...rsvps,
       [guestType]: {
