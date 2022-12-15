@@ -218,6 +218,15 @@ const App: React.FC = () => {
           <h2>
             Schedule <span className="amp">&amp;</span> Details
           </h2>
+          <Button
+            variant="contained"
+            size="small"
+            href="https://migis.com/site/assets/files/1939/2022_season_rates_brochure.pdf"
+            target="_blank"
+            color="secondary"
+          >
+            View Migis Map
+          </Button>
 
           <Item
             title="Lodge Guest Check-In"
@@ -287,11 +296,11 @@ const App: React.FC = () => {
             }
             icon={ICON_MAP.confetti}
             description="saturday, june third, 5–6:30pm"
-            subtitle="The Lawn"
+            subtitle="Terrace"
             body={
               <>
-                Dress code is formal attire, black tie optional. Our ceremony will take place on
-                grass, so plan your shoes accordingly!
+                Dress code is formal attire, black tie optional. Weather permitting, our ceremony
+                will take place on grass, so plan your shoes accordingly!
               </>
             }
           />
@@ -340,7 +349,7 @@ const App: React.FC = () => {
                 We will work with the venue to assign the cottages and lodge rooms, making sure to
                 place you close to your friends and favorite people, and you will be informed of
                 your cottage upon your check-in. The cottages are first come, first served, and you
-                can reserve your place after <a href="#rsvp">RSVPing</a>. Rates are $163.83 per
+                can reserve your place after you <a href="#rsvp">RSVP</a>. Rates are $163.83 per
                 adult per night, or $175.26 per adult to stay Saturday night only.
               </>
             }
