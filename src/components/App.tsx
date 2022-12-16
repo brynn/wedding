@@ -350,7 +350,7 @@ const App: React.FC = () => {
                 place you close to your friends and favorite people, and you will be informed of
                 your cottage upon your check-in. The cottages are first come, first served, and you
                 can reserve your place after you <a href="#rsvp">RSVP</a>. Rates are $163.83 per
-                adult per night, or $175.26 per adult to stay Saturday night only. Important note!
+                adult per night, or $175.26 per adult to stay Saturday night only. Important note!{' '}
                 <strong>
                   Migis doesn't accept credit cards, so if you're staying at the venue please
                   remember to bring cash or check for payment upon departure.
