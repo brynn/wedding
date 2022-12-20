@@ -54,7 +54,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
         variant="outlined"
         size="small"
         autoFocus={rsvpType === 'guest_rsvp'}
-        value={rsvps[rsvpType].name || ''}
+        value={rsvps[rsvpType]?.name || ''}
         onChange={(e) => setRSVP({name: e.target.value}, rsvpType)}
         error={!!error}
         helperText={error}
@@ -65,7 +65,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
         label={rsvpType === 'guest_rsvp' ? 'Email' : `+1's Email`}
         variant="outlined"
         size="small"
-        value={rsvps[rsvpType].email || ''}
+        value={rsvps[rsvpType]?.email || ''}
         onChange={(e) => setRSVP({email: e.target.value}, rsvpType)}
       />
       {/* We assume that new plus ones can attend */}
@@ -78,17 +78,17 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
             <RadioGroup
               aria-labelledby={`response-group-${rsvpType}`}
               name="response"
-              value={rsvps[rsvpType].response ? 'yes' : 'no'}
+              value={rsvps[rsvpType]?.response ? 'yes' : 'no'}
               onChange={(e, value) => setRSVP({response: value === 'yes'}, rsvpType)}
             >
               <FormControlLabel value="yes" control={<Radio size="small" />} label="Can't wait!" />
               <FormControlLabel value="no" control={<Radio size="small" />} label="Sadly, no" />
             </RadioGroup>
           </FormControl>
-          {rsvps[rsvpType].response && <Divider />}
+          {rsvps[rsvpType]?.response && <Divider />}
         </>
       )}
-      {rsvps[rsvpType].response && (
+      {rsvps[rsvpType]?.response && (
         <>
           <FormControl>
             <FormLabel id={`meal-choice-group-${rsvpType}`} className="rsvp-label">
@@ -97,7 +97,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
             <RadioGroup
               aria-labelledby={`meal-choice-group-${rsvpType}`}
               name="meal-choice"
-              value={rsvps[rsvpType].meal_choice}
+              value={rsvps[rsvpType]?.meal_choice}
               onChange={(e, value) => setRSVP({meal_choice: value as MealChoice}, rsvpType)}
             >
               <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
@@ -118,7 +118,7 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
             <RadioGroup
               aria-labelledby={`rehearsal-dinner-group-${rsvpType}`}
               name="rehearsal-dinner"
-              value={rsvps[rsvpType].rehearsal_dinner ? 'yes' : 'no'}
+              value={rsvps[rsvpType]?.rehearsal_dinner ? 'yes' : 'no'}
               onChange={(e, value) => setRSVP({rehearsal_dinner: value === 'yes'}, rsvpType)}
             >
               <FormControlLabel value="yes" control={<Radio size="small" />} label="Yes" />
