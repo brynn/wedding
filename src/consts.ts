@@ -3,7 +3,7 @@ import {RSVP} from './types';
 
 export const API_HOST = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
-export const NUM_IMAGES = 10;
+export const NUM_IMAGES = 20;
 
 export const DEFAULT_RSVP: Partial<RSVP> = {
   response: true,
