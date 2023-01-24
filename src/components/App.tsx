@@ -250,9 +250,18 @@ const App: React.FC = () => {
               </>
             }
             icon={ICON_MAP.fire}
-            description="friday, june second, 6–11pm"
-            subtitle="Cookout Point"
-            body={<>Dinner will be provided at the cookout point. Dress code is semi-formal.</>}
+            description="friday, june second, 6:30pm–11pm"
+            subtitle={
+              <>
+                Cookout Point <span className="amp">&amp;</span> Terrace
+              </>
+            }
+            body={
+              <>
+                Dinner will be provided at the cookout point, followed by a bonfire on the terrace.
+                Dress code is semi-formal.
+              </>
+            }
           />
 
           <Divider />
@@ -260,7 +269,7 @@ const App: React.FC = () => {
           <Item
             title="Breakfast"
             icon={ICON_MAP.egg}
-            description="saturday, june third, 8–10am"
+            description="saturday, june third, 8–9:30am"
             subtitle="Cookout Point"
             body="For guests staying at Migis, breakfast will be provided at the cookout point."
           />
@@ -279,7 +288,7 @@ const App: React.FC = () => {
           <Item
             title="Lunch"
             icon={ICON_MAP.lunch}
-            description="saturday, june third, 12–1pm"
+            description="saturday, june third, 11am–1:30pm"
             subtitle="Main Lodge"
             body={
               <>
@@ -326,7 +335,7 @@ const App: React.FC = () => {
           <Item
             title="Farewell Brunch"
             icon={ICON_MAP.brunch}
-            description="sunday, june fourth, 9–11am"
+            description="sunday, june fourth, 8:30–10am"
             subtitle="Cookout Point"
             body="Brunch will be provided at the cookout point."
           />
