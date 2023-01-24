@@ -100,12 +100,12 @@ const RSVPForm: React.FC<Props> = ({rsvps, rsvpType, setRSVP, error}: Props) => 
               value={rsvps[rsvpType]?.meal_choice}
               onChange={(e, value) => setRSVP({meal_choice: value as MealChoice}, rsvpType)}
             >
-              <FormControlLabel value="fish" control={<Radio size="small" />} label="Fish" />
-              <FormControlLabel value="meat" control={<Radio size="small" />} label="Meat" />
+              <FormControlLabel value="fish" control={<Radio size="small" />} label="Pan Seared Salmon" />
+              <FormControlLabel value="meat" control={<Radio size="small" />} label="Roasted Beef Tenderloin" />
               <FormControlLabel
                 value="vegetarian"
                 control={<Radio size="small" />}
-                label="Vegetarian"
+                label="Veggie Shepherd's Pie"
               />
             </RadioGroup>
           </FormControl>
