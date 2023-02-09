@@ -250,7 +250,7 @@ const App: React.FC = () => {
               </>
             }
             icon={ICON_MAP.fire}
-            description="friday, june second, 6:30pm–11pm"
+            description="friday, june second, 6pm–11pm"
             subtitle={
               <>
                 Cookout Point <span className="amp">&amp;</span> Terrace
@@ -288,7 +288,7 @@ const App: React.FC = () => {
           <Item
             title="Lunch"
             icon={ICON_MAP.lunch}
-            description="saturday, june third, 11am–1:30pm"
+            description="saturday, june third, 12pm–1:30pm"
             subtitle="Main Lodge"
             body={
               <>
