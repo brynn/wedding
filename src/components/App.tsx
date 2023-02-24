@@ -17,8 +17,6 @@ const App: React.FC = () => {
   const [updatingRSVP, setUpdatingRSVP] = useState<boolean>(false);
 
   // TODO: add loading bar
-  // TODO: add link to Migis map
-  // TODO: add link to registry
 
   let rsvpContent = <EmailForm setGuest={setGuest} />;
   if (guest && (!guest.rsvp || updatingRSVP)) {
@@ -64,13 +62,24 @@ const App: React.FC = () => {
               South Casco, Maine
             </p>
             <p className="serif date">june third, two thousand &amp; twenty-three</p>
-            <Button variant="contained" size="large" href="#rsvp" color="secondary">
-              RSVP
-              <span className="amp" style={{margin: '0 5px'}}>
-                &amp;
-              </span>
-              Book Lodging
-            </Button>
+            <div className="intro-buttons">
+              <Button variant="contained" size="large" href="#rsvp" color="secondary">
+                RSVP
+                <span className="amp" style={{margin: '0 5px'}}>
+                  &amp;
+                </span>
+                Book Lodging
+              </Button>
+              <Button
+                variant="contained"
+                size="large"
+                href="https://www.zola.com/registry/brynnandandrew"
+                target="_blank"
+                color="secondary"
+              >
+                Registry
+              </Button>
+            </div>
           </div>
         </div>
         <Section id="prelude">

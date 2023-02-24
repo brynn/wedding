@@ -107,6 +107,10 @@ h3 {
   height: 75vh;
 }
 
+.intro-buttons .MuiButton-root {
+  margin: 5px;
+}
+
 .location {
   font-weight: 700;
   text-transform: uppercase;
@@ -231,7 +235,7 @@ a:hover {
 }
 
 .registry {
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 @media only screen and (max-width: 1199px) {
