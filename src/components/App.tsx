@@ -385,13 +385,10 @@ const App: React.FC = () => {
               <>
                 For those that prefer to stay offsite, the Microtel is a 10 minute drive from Migis.
                 The lodge and its amenities will still be available to you throughout the weekend.
-                There will not be transportation provided from the Microtel. We are in the process
-                of reserving a wedding block at the Microtel, so if you already know you'd prefer to
-                stay there, please email{' '}
-                <a target="_blank" rel="noopener noreferrer" href="mailto:andrewandbrynn@gmail.com">
-                  andrewandbrynn@gmail.com
-                </a>{' '}
-                and we'll make sure to hold a spot for you in the hotel block.
+                There will not be transportation provided from the Microtel. We have a hotel block
+                of 15 rooms with discounted pricing; please call the hotel directly and say you are
+                with the Shepherd/Keim wedding to reserve a room at the discounted rate. This rate
+                is not available if you book online.
               </>
             }
           />
@@ -526,7 +523,14 @@ const App: React.FC = () => {
           </h2>
           {rsvpContent}
           <div className="registry">
-            <p>Registry coming soon!</p>
+            <Button
+              variant="contained"
+              size="large"
+              href="https://www.zola.com/registry/brynnandandrew"
+              target="_blank"
+            >
+              Registry
+            </Button>
           </div>
         </Section>
       </div>
