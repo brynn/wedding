@@ -285,8 +285,8 @@ a:hover {
 
   .intro,
   .intro-content {
-    min-height: 28vh;
-    height: 28vh;
+    min-height: 42vh;
+    height: 42vh;
     padding-bottom: 12vh;
     justify-content: flex-start;
   }
