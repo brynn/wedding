@@ -78,6 +78,12 @@ h3 {
   flex: 1;
   overflow: scroll;
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.content::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
