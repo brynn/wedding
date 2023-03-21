@@ -396,8 +396,9 @@ const App: React.FC = () => {
                 The lodge and its amenities will still be available to you throughout the weekend.
                 There will not be transportation provided from the Microtel. We have a hotel block
                 of 15 rooms with discounted pricing; please call the hotel directly and say you are
-                with the Shepherd/Keim wedding to reserve a room at the discounted rate. This rate
-                is not available if you book online.
+                with the Shepherd/Keim wedding to reserve a room at the discounted rate of
+                $298.32/night. This rate is not available if you book online and it is only
+                available until April 19th.
               </>
             }
           />
