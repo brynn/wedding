@@ -325,7 +325,7 @@ const App: React.FC = () => {
           <Item
             title="Reception"
             icon={ICON_MAP.cake}
-            description="saturday, june third, 6:30pm–10pm"
+            description="saturday, june third, 6:30pm–10:30pm"
             subtitle="Main Lodge"
             body={
               <>
@@ -336,7 +336,7 @@ const App: React.FC = () => {
           <Item
             title="After Party"
             icon={ICON_MAP.afters}
-            description="saturday, june third, 10pm onwards"
+            description="saturday, june third, 10:30pm onwards"
             subtitle="Boulders"
             body="Keep the party going!"
           />
