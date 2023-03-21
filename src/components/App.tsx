@@ -285,7 +285,7 @@ const App: React.FC = () => {
           <Item
             title="Enjoy the Lodge"
             icon={ICON_MAP.kayak}
-            description="saturday, june third, 11am onwards"
+            description="saturday, june third, 9:30am onwards"
             subtitle="Main Lodge"
             body={
               <>
