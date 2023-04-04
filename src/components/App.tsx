@@ -409,7 +409,7 @@ const App: React.FC = () => {
             title="PWM"
             icon={ICON_MAP.flight}
             description="Portland International Jetport"
-            body="Migis Lodge is about 45 minutes driving from Portland International Jetport."
+            body="Migis Lodge is about 45 minutes driving from Portland International Jetport. While it's possible to take Uber or Lyft from the airport to the venue, we recommend renting a car if you're planning to explore other parts of Maine. Also, please let us know if you're planning to Uber back to the airport on Sunday, as it may be more convenient to arrange a car service."
           />
           <Item
             title="BOS"
