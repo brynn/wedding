@@ -338,7 +338,7 @@ const App: React.FC = () => {
             icon={ICON_MAP.afters}
             description="saturday, june third, 10:30pm onwards"
             subtitle="Boulders"
-            body="Keep the party going!"
+            body="Keep the party going! All bangers, all the time."
           />
           <Divider />
           <Item
